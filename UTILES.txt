@@ -1,0 +1,80 @@
+USO DE LA LIBRERIA MINIFY PARA MINIMIZAR CSS Y JS
+
+/application/config/minify.php --> configurar los directorios donde se encuentran los archivos css y js a minimizar y el directorio en el que se van a crear los archivos minimizados.
+IMPORTANTE!! --> el directorio donde se crean los archivos minimizados debe de tener permisos de escritura (777).
+
+en la vista en la que se llama a los archivos (generalmente en el template.php):
+<!-- Minimizamos css -->
+<?  $this->minify->css(array('bootstrap.css','animate.css','nivo-slider.css','magnific-popup.css','style.css','color-blue.css','retina.css','responsive.css','custom.css'));?>
+<? echo $this->minify->deploy_css(); ?>
+<!-- Minimizamos js -->
+<?  $this->minify->js(array('jquery-2.1.4.min.js','bootstrap.min.js','jquery.srcipts.min.js','jquery.matchHeight-min.js','jquery.dlmenu.min.js','include.js','jquery.nivo.slider.pack.js','custom.js','jquery.magnific-popup.min.js','portfolio.js')); ?>
+<?  echo $this->minify->deploy_js(FALSE); ?>
+
+-------------------------
+
+USO RECAPTCHA EN FORMULARIOS
+
+En controlador:
+
+function _captcha($s)
+{
+
+    
+    if(isset($_POST['g-recaptcha-response'])){
+
+		if (trim($this->input->post("g-recaptcha-response")) == "")
+
+			return false;
+
+		$this->form_validation->set_message("_captcha", "No has superado el reto antispam");
+
+		$captcha_answer = $this->input->post('g-recaptcha-response');
+
+		$response = $this->recaptcha->verifyResponse($captcha_answer);
+		if ($response['success']) {
+
+			return true;
+
+		} else {
+
+			return false;
+
+		}
+
+	}
+
+
+}
+
+$this->load->library('recaptcha');
+
+en la declaracion de los campos:
+array(
+
+	"field" => "g-recaptcha-response",
+
+	"label" => "texto de la imagen",
+
+	"rules" => "trim|required|callback__captcha"
+
+	)
+
+en la vista:
+<?php echo $this->recaptcha->render(); ?>
+
+Las claves del recaptcha van en config/recaptcha.php
+$config['recaptcha_sitekey'] = "6LfLjwYTAAAAANT3nfTKMHtgQr9Ek0iyTeJUIPB0";
+$config['recaptcha_secretkey'] = "6LfLjwYTAAAAAJ0lUvz9X5mmftZAYrIuNxATxsq-";
+$config['lang'] = "es";
+
+
+En la vista:
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+------------------
+
+USO BREADCRUMB
+
+EN LA VISTA DONDE QUERAMOS MOSTRARLO:
+<?php echo set_breadcrumb(); ?>
