@@ -77,7 +77,7 @@
                                     <?/*<th class="<?= sentidobusquedacrd('orden', 'usuario.', true) ?> d-none d-sm-table-cell text-center">
                                         <a href="<?php echo site_url('privado/usuario/view?ob=' . sentidobusquedacrd('orden', 'usuario.')); ?>">Orden</a>
                                     </th>*/?>
-                                    <th class="text-center"><span class="d-none d-sm-table-cell">Acciones</span></th>
+                                    <th class="text-center"><span class="d-none d-sm-block">Acciones</span></th>
                                 </tr>
                             </thead>
                             <tbody>

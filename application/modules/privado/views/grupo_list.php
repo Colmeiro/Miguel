@@ -91,7 +91,7 @@
                     <?
                     }
                     ?>
-                        <th class="text-center"><span class="d-none d-sm-table-cell">Acciones</span></th>
+                        <th class="text-center"><span class="d-none d-sm-block">Acciones</span></th>
                     </tr>
                 </thead>
                 <tbody>

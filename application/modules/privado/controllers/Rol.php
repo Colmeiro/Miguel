@@ -120,6 +120,7 @@ class Rol extends MX_Controller
                     'nombre' => $row->nombre,
                     'activo' => $row->activo,
                     'orden' => $row->orden,
+                    'es_admin' => $row->es_admin,
                 )
             );
             $data['seccion'] = 'admin-users';
@@ -142,8 +143,9 @@ class Rol extends MX_Controller
             'action' => site_url('privado/rol/create_action'),
             'data_fields' => array(
                 'nombre' => set_value('nombre'),
-                'activo' => set_value('activo') ? set_value('activo') : 0,
+                'activo' => set_value('activo') ? set_value('activo') : 1,
                 'orden' => set_value('orden'),
+                'es_admin' => set_value('es_admin') ? set_value('es_admin') : 0,
                 'rol_id' => set_value('rol_id'),
             )
         );
@@ -165,8 +167,9 @@ class Rol extends MX_Controller
         } else {
             $data = array(
                 'nombre' => $this->input->post('nombre', TRUE),
-                'activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
+                'activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 1,
                 'orden' => $this->input->post('orden', TRUE),
+                'es_admin' => $this->input->post('es_admin', TRUE) ? $this->input->post('es_admin', TRUE) : 0,
             );
 
             $this->MRol->insert($data);
@@ -187,6 +190,7 @@ class Rol extends MX_Controller
                     'nombre' => set_value('nombre', $row->nombre),
                     'activo' => set_value('activo', $row->activo),
                     'orden' => set_value('orden', $row->orden),
+                    'es_admin' => set_value('es_admin', $row->es_admin),
                     'rol_id' => set_value('rol_id', $row->rol_id),
                 )
             );
@@ -212,8 +216,9 @@ class Rol extends MX_Controller
         } else {
             $data = array(
                 'nombre' => $this->input->post('nombre', TRUE),
-                'activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
+                'activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 1,
                 'orden' => $this->input->post('orden', TRUE),
+                'es_admin' => $this->input->post('es_admin', TRUE) ? $this->input->post('es_admin', TRUE) : 0,
             );
 
             $this->MRol->update($this->input->post('rol_id', TRUE), $data);
@@ -227,8 +232,12 @@ class Rol extends MX_Controller
         $row = $this->MRol->get_by_id($id);
 
         if ($row) {
-            $this->MRol->delete($id);
-            $this->session->set_flashdata('message', 'Rol eliminado correctamente');
+            if( $this->MRol->is_in_use($id) ) {
+                $this->session->set_flashdata('message', 'El rol no se puede eliminar, tiene al menos un usuario asignado.');
+            } else {
+                $this->MRol->delete($id);
+                $this->session->set_flashdata('message', 'Rol eliminado correctamente');
+            }
             redirect(site_url('privado/rol'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -241,6 +250,7 @@ class Rol extends MX_Controller
         $this->form_validation->set_rules('nombre', 'nombre', 'trim|required');
         $this->form_validation->set_rules('activo', 'activo', 'trim');
         $this->form_validation->set_rules('orden', 'orden', 'trim');
+        $this->form_validation->set_rules('es_admin', 'es_admin', 'trim');
 
         $this->form_validation->set_rules('rol_id', 'rol_id', 'trim');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

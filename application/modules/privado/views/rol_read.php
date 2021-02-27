@@ -44,6 +44,10 @@
 												<td><?php echo daFormato($data_fields['nombre'], 'varchar', '0-#333333', '') ?></td>
 											</tr>
 											<tr>
+												<td class="font-weight-bold">Orden</td>
+												<td><?php echo daFormato($data_fields['orden'], 'int', '0-#333333', '') ?></td>
+											</tr>
+											<?/*<tr>
 												<td class="font-weight-bold">Activo</td>
 												<td>
 													<?php //echo daFormato($data_fields['activo'], 'checkbox', '0-#333333', '') ?>
@@ -53,10 +57,12 @@
                                                         <span class="badge badge-light-danger badge-pill">NO ACTIVO</span>
                                                     <? } ?>
 												</td>
-											</tr>
+											</tr>*/?>
 											<tr>
-												<td class="font-weight-bold">Orden</td>
-												<td><?php echo daFormato($data_fields['orden'], 'int', '0-#333333', '') ?></td>
+												<td class="font-weight-bold">Es Administrador</td>
+												<td>
+													<?= daFormato($data_fields['es_admin'], 'checkbox', '0-#333333', '') ?>
+												</td>
 											</tr>
 										</table>
 									</div>

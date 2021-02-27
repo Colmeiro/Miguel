@@ -37,14 +37,15 @@ CREATE TABLE IF NOT EXISTS `rol` (
   `nombre` varchar(255) NOT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT '1',
   `orden` int(11) DEFAULT '1',
+  `es_admin` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`rol_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla fish_arvi.rol: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` (`rol_id`, `nombre`, `activo`, `orden`) VALUES
-	(1, 'Administrador', 1, 1),
-	(2, 'Resto', 1, 2);
+INSERT INTO `rol` (`rol_id`, `nombre`, `activo`, `orden`, `es_admin`) VALUES
+	(1, 'Administrador', 1, 1, 1),
+	(2, 'Resto', 1, 2, 0);
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 
 -- Volcando estructura para tabla fish_arvi.usuario

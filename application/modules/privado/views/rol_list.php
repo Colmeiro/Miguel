@@ -61,13 +61,16 @@
                                         <th class="<?= sentidobusquedacrd('nombre', 'rol.', true) ?> ">
                                             <a href="<?php echo site_url('privado/rol/view?ob=' . sentidobusquedacrd('nombre', 'rol.')); ?>">Nombre</a>
                                         </th>
-                                        <th class="<?= sentidobusquedacrd('activo', 'rol.', true) ?> text-center">
+                                        <?/*<th class="<?= sentidobusquedacrd('activo', 'rol.', true) ?> text-center">
                                             <a href="<?php echo site_url('privado/rol/view?ob=' . sentidobusquedacrd('activo', 'rol.')); ?>">Activo</a>
+                                        </th>*/?>
+                                        <th class="<?= sentidobusquedacrd('es_admin', 'rol.', true) ?> text-center d-none d-sm-table-cell">
+                                            <a href="<?php echo site_url('privado/rol/view?ob=' . sentidobusquedacrd('es_admin', 'rol.')); ?>">Administrador</a>
                                         </th>
                                         <th class="<?= sentidobusquedacrd('orden', 'rol.', true) ?> text-center d-none d-sm-table-cell">
                                             <a href="<?php echo site_url('privado/rol/view?ob=' . sentidobusquedacrd('orden', 'rol.')); ?>">Orden</a>
                                         </th>
-                                        <th class="text-center"><span class="d-none d-sm-table-cell text-center">Acciones</span></th>
+                                        <th class="text-center"><span class="d-none d-sm-block">Acciones</span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,17 +79,24 @@
                                     ?>
                                         <tr>
                                             <td class="text-left color-blue"><?php echo daFormato($row->nombre, 'varchar', '0-#333333', '', '', '') ?></td><!--text-bold-500-->
-                                            <td class="text-center">
+                                            <?/*<td class="text-center">
                                                 <?php //echo daFormato($row->activo, 'checkbox', '0-#333333', '', '', '') ?>
                                                 <? if ($row->activo==1) { ?>
                                                     <span class="badge badge-light-success badge-pill">ACTIVO</span>
                                                 <? }else{ ?>
                                                     <span class="badge badge-light-danger badge-pill">NO ACTIVO</span>
                                                 <? } ?>
+                                            </td>*/?>
+                                            <td class="text-center">
+                                                <?php //echo daFormato($row->es_admin, 'checkbox', '0-#333333', '', '', '') ?>
+                                                <? if ($row->es_admin==1) { ?>
+                                                    <span class="badge badge-light-secondary badge-pill">ADMIN</span>
+                                                <? } ?>
                                             </td>
                                             <td class="text-center d-none d-sm-table-cell"><?php echo daFormato($row->orden, 'int', '0-#333333', '', '', '') ?></td>
+
                                             <!-- Acciones Desktop -->
-                                            <td class="text-left btn-acciones d-none d-md-table-cell">
+                                            <td class="text-center btn-acciones d-none d-md-table-cell">
                                                 <?/*
                                                 <a href="<?= site_url('privado/rol/read/' . $row->rol_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table mb-1 mb-md-0"><i class="bx bx-search"></i></a>
                                                 <a href="<?= site_url('privado/rol/update/' . $row->rol_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table mb-1 mb-md-0"><i class="bx bx-edit"></i></a>

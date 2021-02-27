@@ -2,8 +2,6 @@
 class Security extends MX_Controller
 {
     private $permisos;
-    private $rol_admin = 'Administrador';
-    private $rol_resto = 'Resto';
 
     public function __construct()
     {
@@ -35,13 +33,13 @@ class Security extends MX_Controller
     public function check_admin()
     {
         //Indica si es Administrador
-        return $this->permisos->rol_usuario == $this->rol_admin;
+        return $this->permisos->es_admin;
     }
 
     public function check_resto()
     {
         //Indica si es Administrador
-        return $this->permisos->rol_usuario == $this->rol_resto;
+        return !$this->permisos->es_admin;
     }
 
     public function check_gestion_usuarios()

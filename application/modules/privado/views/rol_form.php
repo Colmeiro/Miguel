@@ -57,16 +57,29 @@
 													</div>
 												</div>
 												
-												<div class="col-12 mb-2">
+												<?/*<div class="col-12 mb-2">
 													<div class="form-group check-admin<?= form_error('activo') != '' ? ' has-error' : '' ?>">
 														<label for="activo">Activo <?php echo form_error('activo') ?></label>
 
 														<div class="checkbox checkbox-primary ml-1">
-                                                        <?= daFormatoEdit($data_fields['activo'], 'activo', 'Activo', 'tinyint', 'checkbox', 0); ?>
+                                                        <?= daFormatoEdit(isset($data_fields['activo']) ? $data_fields['activo'] : '1', 'activo', 'Activo', 'tinyint', 'checkbox', 0); ?>
                                                         <label for="activo"></label>
 														</div>
 														
 														<? if (form_error('activo') != '') { ?> <span class="help-block"><?= form_error('activo') ?></span> <? } ?>
+													</div>
+												</div>*/?>
+
+												<div class="col-12 mb-2">
+													<div class="form-group check-admin<?= form_error('es_admin') != '' ? ' has-error' : '' ?>">
+														<label for="es_admin">Es Administrador <?php echo form_error('es_admin') ?></label>
+
+														<div class="checkbox checkbox-primary ml-1">
+                                                        <?= daFormatoEdit($data_fields['es_admin'], 'es_admin', 'Es Administrador', 'tinyint', 'checkbox', 0); ?>
+                                                        <label for="es_admin"></label>
+														</div>
+														
+														<? if (form_error('es_admin') != '') { ?> <span class="help-block"><?= form_error('es_admin') ?></span> <? } ?>
 													</div>
 												</div>
 

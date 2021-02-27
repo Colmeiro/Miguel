@@ -18,7 +18,7 @@ class MRol extends CI_Model
     // get all
     function get_all()
     {
-        $this->db->select('rol.nombre,rol.activo,rol.orden,rol_id');
+        $this->db->select('rol.nombre,rol.activo,rol.orden,rol.es_admin,rol_id');
         $this->db->order_by($this->id, $this->order);
         return $this->db->get($this->table)->result();
     }
@@ -33,13 +33,14 @@ class MRol extends CI_Model
     // get total rows
     function total_rows($q = NULL)
     {
-        $this->db->select('rol.nombre,rol.activo,rol.orden,rol_id');
+        $this->db->select('rol.nombre,rol.activo,rol.orden,rol.es_admin,rol_id');
 
         if (!empty($q)) {
             $this->db->like('rol_id', $q);
             $this->db->or_like('rol.nombre', $q);
-            $this->db->or_like('rol.activo', $q);
+            // $this->db->or_like('rol.activo', $q);
             $this->db->or_like('rol.orden', $q);
+            // $this->db->or_like('rol.es_admin', $q);
         }
         $this->db->from($this->table);
         return $this->db->count_all_results();
@@ -48,14 +49,15 @@ class MRol extends CI_Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $oc = '', $od = '')
     {
-        $this->db->select('rol.nombre,rol.activo,rol.orden,rol_id');
+        $this->db->select('rol.nombre,rol.activo,rol.orden,rol.es_admin,rol_id');
 
 
         if (!empty($q)) {
             $this->db->like('rol.rol_id', $q);
             $this->db->or_like('rol.nombre', $q);
-            $this->db->or_like('rol.activo', $q);
+            // $this->db->or_like('rol.activo', $q);
             $this->db->or_like('rol.orden', $q);
+            // $this->db->or_like('rol.es_admin', $q);
         }
 
         if ($oc != '') {
@@ -84,6 +86,19 @@ class MRol extends CI_Model
     {
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
+    }
+
+    // Check if the rol is related to some user
+    function is_in_use($id) {
+        $this->db->where($this->id, $id);
+        $this->db->from('usuario');
+        $count = $this->db->count_all_results();
+
+        if($count > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 }
 

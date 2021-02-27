@@ -7,7 +7,7 @@ class MUsuario extends CI_Model
 {
     function getPermisos($id=0)
     {
-        $this->db->select('usuario.activo, rol.nombre AS rol_usuario');
+        $this->db->select('usuario.activo, rol.nombre AS rol_usuario, rol.es_admin');
         $this->db->join('rol','rol.rol_id=usuario.rol_id','left');
         if(empty($id) && !empty($this->session->identifier)) {
             $id = $this->session->identifier;
