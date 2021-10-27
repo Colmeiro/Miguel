@@ -76,9 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	/*'username' => '',
-	'password' => '',
-	'database' => '',*/
+	'username' => 'colmeiro',
+	'password' => '123asd',
+	'database' => 'miguel_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -95,12 +95,12 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 if (strpos($_SERVER["HTTP_HOST"], "vlx.es") !== false){
-	$db['default']['username'] = "pruebas_user";
-	$db['default']['password'] = "12345";
-	$db['default']['database'] = "fish_arvi";
+	$db['default']['username'] = "colmeiro";
+	$db['default']['password'] = "123asd";
+	$db['default']['database'] = "miguel_db";
 }
 else{
-	$db['default']['username'] = "";
-	$db['default']['password'] = "";
-	$db['default']['database'] = "";
+	$db['default']['username'] = "colmeiro";
+	$db['default']['password'] = "123asd";
+	$db['default']['database'] = "miguel_db";
 }

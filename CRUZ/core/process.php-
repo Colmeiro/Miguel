@@ -16,10 +16,10 @@ if (isset($_POST['generate']))
     $string_file = json_encode($datos_file);
     $res = createFile($string_file, 'project/'.$_POST['table_name'].'.cfg');
 
-    /*echo '<pre>';
+    echo '<pre>';
     var_dump($_POST);
     echo '</pre>';
-    exit();*/
+    exit();
     // get form data
     $table_name = safe($_POST['table_name']);
     $jenis_tabel = safe($_POST['jenis_tabel']);
@@ -53,7 +53,7 @@ if (isset($_POST['generate']))
     $edit_campos = array_combine($edit_posicion,$edit_campos_x);
     ksort($list_campos);
     ksort($edit_campos);
-/*
+
     echo '<pre>';
     var_dump($list_campos);
     echo '</pre>';
@@ -62,7 +62,7 @@ if (isset($_POST['generate']))
     echo '</pre>';
 
 exit;
-*/
+
     if ($table_name <> '')
     {
         // set data
@@ -139,7 +139,7 @@ exit;
         $hasil[] = 'No table selected.';
     }
 }
-/*
+
 if (isset($_POST['generateall']))
 {
 
@@ -213,5 +213,5 @@ if (isset($_POST['generateall']))
     $hasil[] = $hasil_config_pagination;
     $hasil[] = $hasil_exportexcel;
     $hasil[] = $hasil_pdf;
-}*/
+}
 ?>

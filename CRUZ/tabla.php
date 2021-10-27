@@ -530,9 +530,9 @@ $pk = $hc->primary_field($tabla);
                                 </select>
                             </td>
 
-                            <td class="text-center"><input type="checkbox" name="campos_list[]" class="selectcheckbox_list" value="<?= $c['column_name'] ?>" <?php echo in_array($c['column_name'], $datacfg->campos_list) ? 'checked' : '' ?> /></td>
+                            <td class="text-center"><input type="checkbox" name="campos_list[]" class="selectcheckbox_list" value="<?= $c['column_name'] ?>" <?php echo in_array($c['column_name'], isset($datacfg->campos_list) ? $datacfg->campos_list : array()) ? 'checked' : '' ?> /></td>
                             <td class="text-center"><input class="text-center input_position_list" type="text" name="posicion_list[<?= $c['column_name'] ?>]" value="<?= isset($datacfg->posicion_list->{$c['column_name']}) ? $datacfg->posicion_list->{$c['column_name']} : $i ?>" style="width:25px;" /></td>
-                            <td class="text-center"><input type="checkbox" name="campos_edit[]" class="selectcheckbox_edit" value="<?= $c['column_name'] ?>" <?php echo in_array($c['column_name'], $datacfg->campos_edit) ? 'checked' : '' ?> /></td>
+                            <td class="text-center"><input type="checkbox" name="campos_edit[]" class="selectcheckbox_edit" value="<?= $c['column_name'] ?>" <?php echo in_array($c['column_name'], isset($datacfg->campos_edit) ? $datacfg->campos_edit : array()) ? 'checked' : '' ?> /></td>
                             <td class="text-center"><input class="text-center input_position_edit" type="text" name="posicion_edit[<?= $c['column_name'] ?>]" value="<?= isset($datacfg->posicion_edit->{$c['column_name']}) ? $datacfg->posicion_edit->{$c['column_name']} : $i ?>" style="width:25px;" /></td>
                             <td class="text-center"><input type="checkbox" name="requerido[<?= $c['column_name'] ?>]" class="requeridocheckbox" value="<?= $c['column_name'] ?>" <?= isset($datacfg->requerido->{$c['column_name']}) ? 'checked' : '' ?> /></td>
                             <? 

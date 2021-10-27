@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 /*
 | -------------------------------------------------------------------
@@ -75,12 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '%DB_HOSTNAME%',
+	'hostname' => 'localhost',
 	/*'username' => '',
 	'password' => '',
 	'database' => '',*/
-	'dbdriver' => '%DB_DRIVER%',
-	'dbprefix' => '%DB_PREFIX%',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
@@ -95,9 +95,9 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 if (strpos($_SERVER["HTTP_HOST"], "vlx.es") !== false){
-	$db['default']['username'] = "%DB_USERNAME%";
-	$db['default']['password'] = "%DB_PASSWORD%";
-	$db['default']['database'] = "%DB_NAME%";
+	$db['default']['username'] = "colmeiro";
+	$db['default']['password'] = "123asd";
+	$db['default']['database'] = "miguel_db";
 }
 else{
 	$db['default']['username'] = "";

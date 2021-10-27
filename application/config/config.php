@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 if (strpos($_SERVER["HTTP_HOST"], "vlx.es") !== false)
-    $config['base_url']	= 'http://fishtag.vlx.es';
+    $config['base_url'] = "https://127.0.0.1/Miguel/";
 else
     $config['base_url'] = ""; // TODO
 
@@ -38,7 +38,7 @@ else
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';
+$config['index_page'] = "";
 
 /*
 |--------------------------------------------------------------------------
@@ -327,7 +327,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = '1:.s9&/LJaAEfN=P{]jn[OIeE7KVR]%';
 
 /*
 |--------------------------------------------------------------------------
@@ -531,7 +531,10 @@ $config['proxy_ips'] = '';
 |--------------------------------------------------------------------------
 */
 
-$config['nombre_web'] = 'Fish Tag'; /* Nombre de la Web */
+$config['nombre_web'] = 'Colmeiro';
+$config['site_logo'] = '../assets/img/logo/logo.jpg';
+$config['site_logosmall'] = '../assets/img/logo/logo_small.jpg';
+$config['site_icon'] = '../assets/img/icon/logo_favicom.jpg';
 $config['telf'] = '';
 $config['movil'] = '';
 $config['whatsapp'] = '';

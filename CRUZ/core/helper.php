@@ -7,6 +7,10 @@ function safe($str)
 
 function readJSON($path)
 {
+    if(!file_exists($path)) {
+        return FALSE;
+    }
+
     $string = file_get_contents($path);
     $obj = json_decode($string);
     return $obj;

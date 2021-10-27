@@ -31,7 +31,7 @@
         <?
         if(modules::run('security/check_admin')) {
         ?>
-            <li class="nav-item has-sub<?= $seccion == 'admin-users' ? ' open' : '' ?>">
+            <li class="nav-item has-sub<? $seccion == 'admin-users' ? ' open' : '' ?>">
                 <a href="<?= base_url() ?>"><i class="bx bx-user"></i><span class="menu-title" data-i18n="Users">Administrar Usuarios</span>
                     <!-- <span class="badge badge-light-danger badge-pill badge-round float-right mr-2">2</span> -->
                 </a>
@@ -50,19 +50,18 @@
                 <?
                 }
                 ?>
-                    <li class="<?= $seccion == 'admin-grupos' ? ' active' : '' ?>">
+                    <li class="<? $seccion == 'admin-grupos' ? ' active' : '' ?>">
                         <a href="<?=site_url('privado/grupo')?>"><i class="bx bx-group"></i><?= modules::run('security/check_admin') ? 'Gestión de ' : 'Ver ' ?>Grupos</a>
                     </li>
                 </ul>
             </li>
 
-            <?/*
-            <li class="nav-item<?= $seccion == 'admin-grupos' ? ' active' : '' ?>">
+            <li class="nav-item<? $seccion == 'admin-grupos' ? ' active' : '' ?>">
                 <a href="<?=site_url('privado/grupo')?>"><i class="bx bx-group"></i><span class="menu-title" data-i18n="Grupos"><?= modules::run('security/check_admin') ? 'Gestión de ' : 'Ver ' ?>Grupos</span></a>
             </li>
-            */?>
+            
 
-            <li class="nav-item<?= $seccion == 'admin-almacen' ? ' active' : '' ?>">
+            <li class="nav-item<? $seccion == 'admin-almacen' ? ' active' : '' ?>">
                 <a href="<?=site_url('privado/almacen')?>"><i class="bx bx-buildings"></i><span class="menu-title" data-i18n="Almacén">Almacén</span></a>
             </li>
         <?
