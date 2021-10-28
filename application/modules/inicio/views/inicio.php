@@ -117,6 +117,25 @@
                         </div>
                     </div>
 
+
+                    <!-- Contactos -->
+                    <div class="col-md-4 col-sm-6 kb-search-content">
+                        <div class="card kb-hover-1">
+                            <div class="card-content">
+                                <div class="card-body text-center">
+                                    <a href="<?= site_url('contactos') ?>">
+                                        <div class="icon-dash mb-1">
+                                            <i class="bx bx-user"></i>
+                                        </div>
+                                        <h5>Contactos</h5>
+                                        <p class=" text-muted">Consulta y edita los contactos guardados.</p>
+                                        <button class="btn btn-primary btn-sm d-none d-sm-inline-block">Acceder</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
             </section>
             <!-- Dashboard Ecommerce ends -->
 

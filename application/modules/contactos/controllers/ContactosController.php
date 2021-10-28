@@ -253,7 +253,7 @@ public function update($id)
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
-            xlsWriteNumber($tablebody, $kolombody++, $nourut);
+        xlsWriteNumber($tablebody, $kolombody++, $nourut);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->contacto_nombre);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->contacto_telefono);
