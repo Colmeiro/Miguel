@@ -119,6 +119,7 @@ class CRUZcode
                 $stmt->bind_param('ss', $this->database, $table);
                 $stmt->bind_result($column_name, $column_key, $data_type);
                 $stmt->execute();
+                $fields[] = '';
                 while ($stmt->fetch()) {
                     $fields[] = array('column_name' => $column_name, 'column_key' => $column_key, 'data_type' => $data_type);
                 }

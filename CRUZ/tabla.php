@@ -1,4 +1,4 @@
-<?
+<?php
 // error_reporting(0);
 require_once 'core/CRUZcode.php';
 require_once 'core/helper.php';

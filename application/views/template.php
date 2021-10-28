@@ -66,7 +66,7 @@
     <!-- END: Col Left-->
 
     <!-- BEGIN: Content-->
-        <?php $this->load->view($main); ?>
+        <!-- linea borrada (vere documento instalación) -->
     <!-- END: Content-->
 
     <!-- BEGIN: Demo Chat-->

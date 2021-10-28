@@ -79,7 +79,9 @@ error_reporting(E_ALL);
             <div class="col-md-12" id="contenido">
             <h1 class="border-bottom display-4 text-gray pb-2 mb-5"><span class="text-muted">CRUZ : PHP CRUD Generator</span> <br> Base de datos: <?=$hc->database;?></h1>
                 <!-- <label>Base de datos: <?=$hc->database;?></label>  -->
-                <a href="#" id="showtables" class="btn btn-secondary">Ver tablas</a><a href="#" id="hidetables" class="btn btn-secondary" style="display:none">Ocultar tablas</a>
+                <a href="#" id="showtables" class="btn btn-secondary">Ver tablas</a>
+                
+                <a href="#" id="hidetables" class="btn btn-secondary" style="display:none">Ocultar tablas</a>
                 <p></p>
                 <br>
                 <!-- <div class="row">
@@ -146,13 +148,13 @@ error_reporting(E_ALL);
                 })
 
                 console.log($('.buttontable.active'));
-                <?
-                if(isset($_POST['table_name'])){
-                    ?>
+                // <?
+                // if(isset($_POST['table_name'])){
+                //     ?>
                     getTabla($('.buttontable.active'));
-                    <?
-                }
-                ?>
+                //     <?
+                // }
+                // ?>
                 //$('.buttontable.active').click();
                 //setname();
                 $('.buttontable').click(function(){
@@ -252,7 +254,7 @@ error_reporting(E_ALL);
                             select_ord.prop('disabled',false).show().parent().show();
 
 
-/*
+
                             select.parent().siblings('.div_select_relacion_tabla_campo_mostrar').children('select').html(result);
                             // select.next().find('option').each(function(){
                             //     $(this).text('m - '+$(this).text())
@@ -265,7 +267,7 @@ error_reporting(E_ALL);
                             // });
                             select.parent().next().next().children('select').find('option:eq(0)').prop('selected', true)
                             select.parent().next().next().children('select').prop('disabled',false).show();
-                            */
+                            
                         });   
                     }
                 })
