@@ -62,6 +62,9 @@ class Contacto extends MX_Controller
             $this->session->set_userdata(array('contacto.od' => $ordendir, 'contacto.oc' => $ordencampo));
         }
 
+        // echo "HEY";
+        // die();
+        
         $oc = $this->session->userdata('contacto.oc');
         $od = $this->session->userdata('contacto.od');
 
@@ -80,7 +83,7 @@ class Contacto extends MX_Controller
         }
 
 
-
+        
 
         $config['base_url'] = current_url() . '/';
         $config['first_url'] = current_url() . '/';
@@ -111,7 +114,12 @@ class Contacto extends MX_Controller
         $data['seccion'] = 'admin-users';
         $data['main'] = 'contacto_list';
         $this->load->view('template', $data);
-        redirect('privado/contacto/view');
+
+        // echo "HEY";
+        // die();
+        $this->load->view('template', $data);
+
+        // redirect('privado/contacto/view');
     }
 
     public function read($id)

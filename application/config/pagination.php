@@ -1,3 +1,4 @@
+<!--
 <?
 $config['uri_segment'] = 3;
 $config['num_links'] = 4;
@@ -34,3 +35,6 @@ $config['num_tag_close'] = '</li>';
 $config['attributes'] = array('class' => 'page-link');
 
 $config['display_pages'] = TRUE;
+
+?>
+-->

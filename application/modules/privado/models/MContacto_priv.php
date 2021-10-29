@@ -62,7 +62,7 @@ class MContacto_priv extends CI_Model
         if ($oc != '') {
             $this->db->order_by($oc, $od);
         } else
-            $this->db->order_by('contactos.orden', 'asc');
+            $this->db->order_by('contactos.contacto_id', 'asc');
         $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
