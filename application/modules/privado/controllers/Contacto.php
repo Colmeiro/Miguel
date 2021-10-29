@@ -117,7 +117,7 @@ class Contacto extends MX_Controller
 
         // echo "HEY";
         // die();
-        $this->load->view('template', $data);
+        // $this->load->view('template', $data);
 
         // redirect('privado/contacto/view');
     }

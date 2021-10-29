@@ -79,14 +79,14 @@
                                 foreach ($contacto_data as $row) {
                                 ?>
                                     <tr>
-                                        <td class=" text-left"><?php echo daFormato($row->nombre, 'varchar', '0-#5A8DEE', '', '', '') ?>
+                                        <td class=" text-left"><? echo daFormato($row->nombre, 'varchar', '0-#5A8DEE', '', '', '') ?>
                                             <span class="d-sm-none">
                                                 <?php echo daFormato($row->apellidos, 'varchar', '0-#5A8DEE', '', '', '') ?>
                                                 <br>
                                                 <span class="rol-mvl"><strong>ROL</strong>: <?php echo daFormato($row->rol_id, 'relacionado', '0-#333333', '', '', '') ?></span>
                                             </span>
                                         </td>
-                                        <td class=" text-left d-none d-sm-table-cell"><?php echo daFormato($row->contacto_telefono, 'varchar', '0-#333333', '', '', '') ?></td>
+                                        <td class=" text-left d-none d-sm-table-cell"><? echo daFormato($row->contacto_telefono, 'varchar', '0-#333333', '', '', '') ?></td>
                                         <td class=" text-center">
                                             <?php //echo daFormato($row->activo, 'checkbox', '0-#333333', '', '', '') ?>
                                             <? if ($row->activo==1) { ?>
@@ -95,16 +95,16 @@
                                                 <span class="badge badge-light-danger badge-pill">NO ACTIVO</span>
                                             <? } ?>
                                         </td>
-                                        <td class=" text-center d-none d-sm-table-cell"><?php echo daFormato($row->contacto_id, 'int', '0-#333333', '', '', '') ?></td>
+                                        <td class=" text-center d-none d-sm-table-cell"><? echo daFormato($row->contacto_id, 'int', '0-#333333', '', '', '') ?></td>
                                         <!-- Acciones Desktop -->
                                         <td class="text-center btn-acciones d-none d-md-table-cell">
                                             
-                                            <a href="<?= site_url('privado/contacto/read/' . $row->contacto_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i></a>
-                                            <a href="<?= site_url('privado/contacto/update/' . $row->contacto_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i></a>
-                                            <a href="<?= site_url('privado/contacto/delete/' . $row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>*/?>
-                                            <a href="<?= site_url('privado/contacto/read/' . $row->contacto_id) ?>" class="color-l-gray mr-1"><i class="bx bx-search"></i></a>
-                                            <a href="<?= site_url('privado/contacto/update/' . $row->contacto_id) ?>" class="color-l-gray mr-1"><i class="bx bx-edit"></i></a>
-                                            <a href="<?= site_url('privado/contacto/delete/' . $row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="color-l-gray"><i class="bx bx-trash"></i></a>
+                                            <a href="<? site_url('privado/contacto/read/' . $row->contacto_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i></a>
+                                            <a href="<? site_url('privado/contacto/update/' . $row->contacto_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i></a>
+                                            <a href="<? site_url('privado/contacto/delete/' . $row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>*/?>
+                                            <a href="<? site_url('privado/contacto/read/' . $row->contacto_id) ?>" class="color-l-gray mr-1"><i class="bx bx-search"></i></a>
+                                            <a href="<? site_url('privado/contacto/update/' . $row->contacto_id) ?>" class="color-l-gray mr-1"><i class="bx bx-edit"></i></a>
+                                            <a href="<? site_url('privado/contacto/delete/' . $row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="color-l-gray"><i class="bx bx-trash"></i></a>
                                         </td>
 
                                         <!-- Acciones Mobile -->
