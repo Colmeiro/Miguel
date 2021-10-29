@@ -19,7 +19,7 @@ class MContacto_priv extends CI_Model
     function get_all()
     {
         $this->db->select('contactos.contacto_nombre,contactos.contacto_telefono');
-        $this->db->order_by($this->id, $this->order);
+        $this->db->order_by($this->id);
         // $this->db->join("rol", "contacto.rol_id = rol.rol_id", "left");
         return $this->db->get($this->table)->result();
     }

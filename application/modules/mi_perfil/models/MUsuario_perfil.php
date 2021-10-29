@@ -3,11 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class MUsuario_perfil extends CI_Model
+class MContacto_perfil extends CI_Model
 {
 
-    public $table = 'usuario';
-    public $id = 'usuario_id';
+    public $table = 'contactos';
+    public $id = 'contactos_id';
     public $order = 'DESC';
 
     function __construct()
@@ -23,14 +23,10 @@ class MUsuario_perfil extends CI_Model
     }
 
     // get data by grupo_id
-    function get_grupo_by_usuario_id($id)
+    function get_grupo_by_contacto_id($id)
     {
-        $this->db->select('grupo.grupo_id as grupo_id, grupo.nombre as nombre');
-        $this->db->join("usuario_grupo", "usuario_grupo.grupo_id = grupo.grupo_id", "left");
-        $this->db->where('usuario_grupo.usuario_id', $id);
-        $this->db->where('usuario_grupo.activo', 1);
-        $this->db->where('grupo.activo', 1);
-		$this->db->order_by('usuario_grupo.orden', 'ASC');
+        $this->db->select('contactos.contacto_nombre as nombre');
+        
         return $this->db->get('grupo')->result();
     }
 }

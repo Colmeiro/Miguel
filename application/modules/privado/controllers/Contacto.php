@@ -138,10 +138,10 @@ class Contacto extends MX_Controller
                     // 'email' => $row->email,
                     // 'rol_id' => $row->rol_id,
                     // 'activo' => $row->activo,
-                    // 'orden' => $row->orden,
+                    // 'orden' => $row->contacto_id,
                 )
             );
-            $this->db->order_by('orden', 'ASC');
+            $this->db->order_by('contacto_id', 'ASC');
             $data['s_rol_id'] = $this->db->get('rol')->result();
             $data['seccion'] = 'admin-users';
             $data['main'] = 'contacto_read';
@@ -174,7 +174,7 @@ class Contacto extends MX_Controller
                 'contacto_id' => set_value('contacto_id'),
             )
         );
-        $this->db->order_by('orden', 'ASC');
+        $this->db->order_by('contacto_id', 'ASC');
         $data['s_rol_id'] = $this->db->get('rol')->result();
         $data['seccion'] = 'admin-users';
         $data['main'] = 'contacto_form';
@@ -232,7 +232,7 @@ class Contacto extends MX_Controller
                 )
             );
 
-            $this->db->order_by('orden', 'ASC');
+            $this->db->order_by('contacto_id', 'ASC');
             $data['s_rol_id'] = $this->db->get('rol')->result();
             $data['seccion'] = 'admin-users';
             $data['main'] = 'contacto_form';
