@@ -61,7 +61,7 @@
                             <td class="text-center btn-acciones d-none d-md-table-cell">
                                 <a href="<?=site_url('contactos/contactoscontroller/read/'.$row->contacto_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i></a>
                                 <a href="<?=site_url('contactos/contactoscontroller/update/'.$row->contacto_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i></a>
-                                <a href="<?=site_url('contactos/contactoscontroller/delete/'.$row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contactos?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>
+                                <a href="<?=site_url('contactos/contactoscontroller/delete/'.$row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>
                             </td>
                             <!-- Acciones Mobile -->
                             <td class="text-center btn-acciones d-table-cell d-md-none">
@@ -70,7 +70,7 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                    <a class="dropdown-item" href="<?=site_url('contactos/contactoscontroller/read/'.$row->contacto_id) ?>"><i class="bx bx-show-alt mr-1"></i> Ver</a>
                                    <a class="dropdown-item" href="<?=site_url('contactos/contactoscontroller/update/'.$row->contacto_id) ?>"><i class="bx bx-edit-alt mr-1"></i> Editar</a>
-                                   <a class="dropdown-item" href="<?=site_url('contactos/contactoscontroller/delete/'.$row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contactos?')"><i class="bx bx-trash mr-1"></i> Eliminar</a>
+                                   <a class="dropdown-item" href="<?=site_url('contactos/contactoscontroller/delete/'.$row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')"><i class="bx bx-trash mr-1"></i> Eliminar</a>
                                </div>
                             </div>
                             </td>

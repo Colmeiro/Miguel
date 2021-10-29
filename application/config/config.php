@@ -532,9 +532,9 @@ $config['proxy_ips'] = '';
 */
 
 $config['nombre_web'] = 'Colmeiro';
-$config['site_logo'] = '../assets/img/logo/logo.jpg';
-$config['site_logosmall'] = '../assets/img/logo/logo_small.jpg';
-$config['site_icon'] = '../assets/img/icon/logo_favicom.jpg';
+$config['site_logo'] = './assets/img/logo/logo.jpg';
+$config['site_logosmall'] = './assets/img/logo/logo_small.jpg';
+$config['site_icon'] = './assets/img/icon/logo_favicom.jpg';
 $config['telf'] = '';
 $config['movil'] = '';
 $config['whatsapp'] = '';

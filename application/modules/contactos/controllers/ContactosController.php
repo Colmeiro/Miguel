@@ -140,8 +140,8 @@ $data['subtitulo']='Ver Contactos';
 	);
             $data['main'] = 'contactos_form';
             
-    $data['titulo']='contactos';
-    $data['subtitulo']='Añadir Contactos';
+    $data['titulo']='Contactos';
+    $data['subtitulo']='Añadir Contacto';
     $this->load->view('template', $data);
         }
     
@@ -156,7 +156,7 @@ $data['subtitulo']='Ver Contactos';
 	    );
 
             $this->Contactos_model->insert($data);
-            $this->session->set_flashdata('message', 'Contactos creado correctamente');
+            $this->session->set_flashdata('message', 'Contacto creado correctamente');
             redirect(site_url('contactos/contactoscontroller'));
         }
     }    
@@ -195,7 +195,7 @@ public function update($id)
 	    );
 	
             $this->Contactos_model->update($this->input->post('contacto_id', TRUE), $data);
-            $this->session->set_flashdata('message', 'Contactos modificado correctamente');
+            $this->session->set_flashdata('message', 'Contacto modificado correctamente');
             redirect(site_url('contactos/contactoscontroller'));
 
         }
@@ -222,50 +222,50 @@ public function update($id)
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
-    public function excel()
-    {
-        $this->load->helper('exportexcel');
-        $namaFile = "contactos.xls";
-        $judul = "contactos";
-        $tablehead = 0;
-        $tablebody = 1;
-        $nourut = 1;
-        //penulisan header
-        header("Pragma: public");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
-        header("Content-Type: application/force-download");
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
-        header("Content-Disposition: attachment;filename=" . $namaFile . "");
-        header("Content-Transfer-Encoding: binary ");
+    // public function excel()
+    // {
+    //     $this->load->helper('exportexcel');
+    //     $namaFile = "contactos.xls";
+    //     $judul = "contactos";
+    //     $tablehead = 0;
+    //     $tablebody = 1;
+    //     $nourut = 1;
+    //     //penulisan header
+    //     header("Pragma: public");
+    //     header("Expires: 0");
+    //     header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+    //     header("Content-Type: application/force-download");
+    //     header("Content-Type: application/octet-stream");
+    //     header("Content-Type: application/download");
+    //     header("Content-Disposition: attachment;filename=" . $namaFile . "");
+    //     header("Content-Transfer-Encoding: binary ");
 
-        xlsBOF();
+    //     xlsBOF();
 
-        $kolomhead = 0;
-        xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "");
-	xlsWriteLabel($tablehead, $kolomhead++, "Contacto Nombre");
-	xlsWriteLabel($tablehead, $kolomhead++, "Contacto Telefono");
-	xlsWriteLabel($tablehead, $kolomhead++, "Contacto Activo");
+    //     $kolomhead = 0;
+    //     xlsWriteLabel($tablehead, $kolomhead++, "No");
+	// xlsWriteLabel($tablehead, $kolomhead++, "");
+	// xlsWriteLabel($tablehead, $kolomhead++, "Contacto Nombre");
+	// xlsWriteLabel($tablehead, $kolomhead++, "Contacto Telefono");
+	// xlsWriteLabel($tablehead, $kolomhead++, "Contacto Activo");
 
-	foreach ($this->Contactos_model->get_all() as $data) {
-            $kolombody = 0;
+	// foreach ($this->Contactos_model->get_all() as $data) {
+    //         $kolombody = 0;
 
-            //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
-        xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->contacto_nombre);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->contacto_telefono);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->contacto_activo);
+    //         //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
+    //     xlsWriteNumber($tablebody, $kolombody++, $nourut);
+	//     xlsWriteLabel($tablebody, $kolombody++, $data->);
+	//     xlsWriteLabel($tablebody, $kolombody++, $data->contacto_nombre);
+	//     xlsWriteLabel($tablebody, $kolombody++, $data->contacto_telefono);
+	//     xlsWriteLabel($tablebody, $kolombody++, $data->contacto_activo);
 
-	    $tablebody++;
-            $nourut++;
-        }
+	//     $tablebody++;
+    //         $nourut++;
+    //     }
 
-        xlsEOF();
-        exit();
-    }
+    //     xlsEOF();
+    //     exit();
+    // }
 
     public function word()
     {

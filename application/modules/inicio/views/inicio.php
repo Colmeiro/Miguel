@@ -123,7 +123,7 @@
                         <div class="card kb-hover-1">
                             <div class="card-content">
                                 <div class="card-body text-center">
-                                    <a href="<?= site_url('contactos') ?>">
+                                    <a href="<?= site_url('privado/contacto') ?>">
                                         <div class="icon-dash mb-1">
                                             <i class="bx bx-user"></i>
                                         </div>

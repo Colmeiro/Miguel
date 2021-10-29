@@ -27,7 +27,7 @@
                                                     <div class="divider-text text-uppercase font-weigth-500 fs-20">ÁREA PRIVADA</div>
                                                 </div>
                                                 <div class="text-center mb-2">Introduce tus datos a continuación para acceder al área privada.</div>
-
+                                                <!--
                                                 <?
                                                 if ($this->session->flashdata('msg_login')) {
                                                 ?>
@@ -37,7 +37,7 @@
                                                 <?
                                                 }
                                                 ?>
-
+                                                -->
                                                 <form action="<?= site_url('auth/login') ?>" method="post">
                                                     <!-- <div class="form-group mb-50">
                                                         <input type="email" class="form-control" id="username" name="username" placeholder="Email">
@@ -71,13 +71,13 @@
                                     </div>
                                 </div>
                                 <!-- right section image -->
-                                <?/*
+                                <!-- <?/*
                                 <div class="col-md-6 d-md-block d-none text-center align-self-center p-3 bg-fish-tag">
                                     <div class="card-content">
                                         <img class="img-fluid" src="<?= base_url(); ?>app-assets/images/pages/fish-tag-background.jpg" alt="Fish-tag Background">
                                     </div>
                                 </div>
-                                */?>
+                                */?> -->
                             </div>
                         </div>
                     </div>
