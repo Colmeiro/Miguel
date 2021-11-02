@@ -162,16 +162,17 @@ class Contacto extends MX_Controller
             'button' => 'Añadir',
             'action' => site_url('privado/contacto/create_action'),
             'data_fields' => array(
-                'nombre' => set_value('nombre'),
-                'apellidos' => set_value('apellidos'),
-                // 'dni' => set_value('dni'),
-                // 'ciudad' => set_value('ciudad'),
-                'email' => set_value('email'),
-                'password' => set_value('password'),
-                'rol_id' => set_value('rol_id'),
-                'activo' => set_value('activo') ? set_value('activo') : 0,
+                'contacto_nombre' => set_value('contacto_nombre'),
+                'contacto_telefono' => set_value('contacto_telefono'),
+                // 'apellidos' => set_value('apellidos'),
+                // // 'dni' => set_value('dni'),
+                // // 'ciudad' => set_value('ciudad'),
+                // 'email' => set_value('email'),
+                // 'password' => set_value('password'),
+                // 'rol_id' => set_value('rol_id'),
+                'contacto_activo' => set_value('activo') ? set_value('activo') : 0,
                 // 'orden' => set_value('orden'),
-                'contacto_id' => set_value('contacto_id'),
+                // 'contacto_id' => set_value('contacto_id'),
             )
         );
         $this->db->order_by('contacto_id', 'ASC');
@@ -193,15 +194,16 @@ class Contacto extends MX_Controller
             $this->create();
         } else {
             $data = array(
-                'fecha_creacion' => date('Y-m-d H:i:s'),
-                'nombre' => $this->input->post('nombre', TRUE),
-                'apellidos' => $this->input->post('apellidos', TRUE),
-                // 'dni' => $this->input->post('dni', TRUE),
-                // 'ciudad' => $this->input->post('ciudad', TRUE),
-                'email' => $this->input->post('email', TRUE),
-                'password' => md5($this->input->post('password', TRUE)),
-                'rol_id' => $this->input->post('rol_id', TRUE),
-                'activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
+                // 'fecha_creacion' => date('Y-m-d H:i:s'),
+                'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
+                'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
+                // 'apellidos' => $this->input->post('apellidos', TRUE),
+                // // 'dni' => $this->input->post('dni', TRUE),
+                // // 'ciudad' => $this->input->post('ciudad', TRUE),
+                // 'email' => $this->input->post('email', TRUE),
+                // 'password' => md5($this->input->post('password', TRUE)),
+                // 'rol_id' => $this->input->post('rol_id', TRUE),
+                'contacto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
                 // 'orden' => $this->input->post('orden', TRUE),
             );
 
@@ -220,13 +222,14 @@ class Contacto extends MX_Controller
                 'button' => 'Modificar',
                 'action' => site_url('privado/contacto/update_action'),
                 'data_fields' => array(
-                    'nombre' => set_value('nombre', $row->nombre),
-                    'apellidos' => set_value('apellidos', $row->apellidos),
-                    // 'dni' => set_value('dni', $row->dni),
-                    // 'ciudad' => set_value('ciudad', $row->ciudad),
-                    'email' => set_value('email', $row->email),
-                    'rol_id' => set_value('rol_id', $row->rol_id),
-                    'activo' => set_value('activo', $row->activo),
+                    'contacto_nombre' => set_value('contacto_nombre', $row->nombre),
+                    'contacto_telefono' => set_value('contacto_telefono', $row->telefono),
+                    // 'apellidos' => set_value('apellidos', $row->apellidos),
+                    // // 'dni' => set_value('dni', $row->dni),
+                    // // 'ciudad' => set_value('ciudad', $row->ciudad),
+                    // 'email' => set_value('email', $row->email),
+                    // 'rol_id' => set_value('rol_id', $row->rol_id),
+                    'contacto_activo' => set_value('activo', $row->activo),
                     // 'orden' => set_value('orden', $row->orden),
                     'contacto_id' => set_value('contacto_id', $row->contacto_id),
                 )
@@ -254,13 +257,14 @@ class Contacto extends MX_Controller
             $this->update($this->input->post('contacto_id', TRUE));
         } else {
             $data = array(
-                'nombre' => $this->input->post('nombre', TRUE),
-                'apellidos' => $this->input->post('apellidos', TRUE),
-                // 'dni' => $this->input->post('dni', TRUE),
-                // 'ciudad' => $this->input->post('ciudad', TRUE),
-                'email' => $this->input->post('email', TRUE),
-                'rol_id' => $this->input->post('rol_id', TRUE),
-                'activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
+                'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
+                'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
+                // 'apellidos' => $this->input->post('apellidos', TRUE),
+                // // 'dni' => $this->input->post('dni', TRUE),
+                // // 'ciudad' => $this->input->post('ciudad', TRUE),
+                // 'email' => $this->input->post('email', TRUE),
+                // 'rol_id' => $this->input->post('rol_id', TRUE),
+                'contacto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
                 // 'orden' => $this->input->post('orden', TRUE),
             );
 

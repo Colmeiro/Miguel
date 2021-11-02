@@ -63,7 +63,7 @@
                                         <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('contacto_nombre', 'contactos.')); ?>">Nombre</a>
                                     </th>
                                     <th class="<?= sentidobusquedacrd('contacto_telefono', 'contactos.', true) ?> d-none d-sm-table-cell">
-                                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('contacto_telefono', 'contactos.')); ?>">Apellidos</a>
+                                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('contacto_telefono', 'contactos.')); ?>">Teléfono</a>
                                     </th>
                                     <th class="<?= sentidobusquedacrd('contacto_activo', 'contactos.', true) ?> text-center">
                                         <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('contacto_activo', 'contactos.')); ?>">Activo</a>
@@ -79,21 +79,24 @@
                                 foreach ($contacto_data as $row) {
                                 ?>
                                     <tr>
-                                        <td class=" text-left"><? echo daFormato($row->nombre, 'varchar', '0-#5A8DEE', '', '', '') ?>
-                                            <span class="d-sm-none">
-                                                <?php echo daFormato($row->apellidos, 'varchar', '0-#5A8DEE', '', '', '') ?>
+                                        <td class="text-left" <?php var_dump($contacto_data); ?> ></td>
+                                        <?php die(); ?>
+                                        <td class="text-left" <?php echo($contacto_data['contacto_nombre']); ?> ></td>
+                                            <span class="d-sm-none"></span>
+                                               
+                                                <?php echo ($contacto_data['contacto_telefono']) ?>
                                                 <br>
                                                 <span class="rol-mvl"><strong>ROL</strong>: <?php echo daFormato($row->rol_id, 'relacionado', '0-#333333', '', '', '') ?></span>
                                             </span>
                                         </td>
                                         <td class=" text-left d-none d-sm-table-cell"><? echo daFormato($row->contacto_telefono, 'varchar', '0-#333333', '', '', '') ?></td>
                                         <td class=" text-center">
-                                            <?php //echo daFormato($row->activo, 'checkbox', '0-#333333', '', '', '') ?>
+                                            <!-- <?php //echo daFormato($row->activo, 'checkbox', '0-#333333', '', '', '') ?>
                                             <? if ($row->activo==1) { ?>
                                                 <span class="badge badge-light-success badge-pill">ACTIVO</span>
                                             <? }else{ ?>
                                                 <span class="badge badge-light-danger badge-pill">NO ACTIVO</span>
-                                            <? } ?>
+                                            <? } ?> -->
                                         </td>
                                         <td class=" text-center d-none d-sm-table-cell"><? echo daFormato($row->contacto_id, 'int', '0-#333333', '', '', '') ?></td>
                                         <!-- Acciones Desktop -->
