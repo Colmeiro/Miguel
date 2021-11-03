@@ -96,9 +96,11 @@
                                         <!-- Acciones Desktop -->
                                         <td class="text-center btn-acciones d-none d-md-table-cell">
                                             
-                                            <a href="<?= site_url('privado/contacto/read/' . $row->contacto_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i></a>
-                                            <a href="<?php site_url('privado/contacto/update/' . $row->contacto_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i></a>
-                                            <a href="<?php site_url('privado/contacto/delete/' . $row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>
+                                            <a href="<?= site_url('privado/contacto/read/' . $row->contacto_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i><span class="d-none d-sm-inline-block">Ver</span></a>
+                                            <a href="<?= site_url('privado/contacto/update/' . $row->contacto_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i><span class="d-none d-sm-inline-block">Editar</span></a>
+                                            <a href="<?= site_url('privado/contacto/delete/' . $row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i>Borrar</a>
+                                            <!-- <a href="<?php site_url('privado/contacto/update/' . $row->contacto_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i></a> -->
+                                            <!-- <a href="<?php site_url('privado/contacto/delete/' . $row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a> -->
                                             <!-- <a href="<?php site_url('privado/contacto/read/' . $row->contacto_id) ?>" class="color-l-gray mr-1"><i class="bx bx-search"></i></a>
                                             <a href="<?php site_url('privado/contacto/update/' . $row->contacto_id) ?>" class="color-l-gray mr-1"><i class="bx bx-edit"></i></a>
                                             <a href="<?php site_url('privado/contacto/delete/' . $row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="color-l-gray"><i class="bx bx-trash"></i></a> -->

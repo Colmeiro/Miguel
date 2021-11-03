@@ -228,20 +228,20 @@ class Contacto extends MX_Controller
                     'contacto_nombre' => set_value('contacto_nombre', $row->contacto_nombre),
                     'contacto_telefono' => set_value('contacto_telefono', $row->contacto_telefono),
                     'contacto_activo' => set_value('contacto_activo', $row->contacto_activo),
+                    'contacto_id' => set_value('contacto_id', $row->contacto_id),
                     // 'apellidos' => set_value('apellidos', $row->apellidos),
                     // // 'dni' => set_value('dni', $row->dni),
                     // // 'ciudad' => set_value('ciudad', $row->ciudad),
                     // 'email' => set_value('email', $row->email),
                     // 'rol_id' => set_value('rol_id', $row->rol_id),
-                    'contacto_activo' => set_value('activo', $row->activo),
                     // 'orden' => set_value('orden', $row->orden),
-                    'contacto_id' => set_value('contacto_id', $row->contacto_id),
+                    // 'contacto_id' => set_value('contacto_id', $row->contacto_id),
                 )
             );
 
-            $this->db->order_by('contacto_id', 'ASC');
-            $data['s_rol_id'] = $this->db->get('rol')->result();
-            $data['seccion'] = 'admin-users';
+            // $this->db->order_by('contacto_id', 'ASC');
+            // $data['s_rol_id'] = $this->db->get('rol')->result();
+            // $data['seccion'] = 'admin-users';
             $data['main'] = 'contacto_form';
 
             $data['titulo'] = 'Gestión de contactos';
@@ -260,6 +260,7 @@ class Contacto extends MX_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('contacto_id', TRUE));
         } else {
+            
             $data = array(
                 'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
                 'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
@@ -269,7 +270,6 @@ class Contacto extends MX_Controller
                 // // 'ciudad' => $this->input->post('ciudad', TRUE),
                 // 'email' => $this->input->post('email', TRUE),
                 // 'rol_id' => $this->input->post('rol_id', TRUE),
-                'contacto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
                 // 'orden' => $this->input->post('orden', TRUE),
             );
 
