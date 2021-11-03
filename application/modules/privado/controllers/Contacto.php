@@ -82,13 +82,8 @@ class Contacto extends MX_Controller
             $this->session->set_userdata(array('contacto.nr' => 10));
         }
 
-
-        
-
         $config['base_url'] = current_url() . '/';
         $config['first_url'] = current_url() . '/';
-
-
 
 
         $config['uri_segment'] = 4;
@@ -126,29 +121,35 @@ class Contacto extends MX_Controller
     {
         $row = $this->MContacto_priv->get_by_id($id);
         if ($row) {
+            // var_dump($id);
+            // die();
             $data = array(
                 'data_fields' => array(
                     'contacto_id' => $row->contacto_id,
-                    // 'fecha_creacion' => $row->fecha_creacion,
                     'contacto_nombre' => $row->contacto_nombre,
                     'contacto_telefono' => $row->contacto_telefono,
+                    'contacto_activo' => $row->contacto_activo,
+                    // 'fecha_creacion' => $row->fecha_creacion,
                     // 'apellidos' => $row->apellidos,
                     // 'dni' => $row->dni,
                     // 'ciudad' => $row->ciudad,
                     // 'email' => $row->email,
                     // 'rol_id' => $row->rol_id,
-                    // 'activo' => $row->activo,
                     // 'orden' => $row->contacto_id,
                 )
             );
             $this->db->order_by('contacto_id', 'ASC');
-            $data['s_rol_id'] = $this->db->get('rol')->result();
-            $data['seccion'] = 'admin-users';
+            // $data['s_rol_id'] = $this->db->get('rol')->result();
+            // $data['seccion'] = 'admin-users';
             $data['main'] = 'contacto_read';
 
             $data['titulo'] = 'Gestión de contactos';
-            $data['subtitulo'] = 'Ver contacto';
-            $this->load->view('template', $data);
+            $data['subtitulo'] = 'Contacto';
+
+            // var_dump($data);
+            // die();
+
+            $this->load->view('contacto_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('privado/contacto'));
@@ -164,6 +165,7 @@ class Contacto extends MX_Controller
             'data_fields' => array(
                 'contacto_nombre' => set_value('contacto_nombre'),
                 'contacto_telefono' => set_value('contacto_telefono'),
+                'contacto_activo' => set_value('contacto_activo'),
                 // 'apellidos' => set_value('apellidos'),
                 // // 'dni' => set_value('dni'),
                 // // 'ciudad' => set_value('ciudad'),
@@ -197,13 +199,14 @@ class Contacto extends MX_Controller
                 // 'fecha_creacion' => date('Y-m-d H:i:s'),
                 'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
                 'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
+                'contacto_activo' => $this->input->post('contacto_activo', TRUE),
                 // 'apellidos' => $this->input->post('apellidos', TRUE),
                 // // 'dni' => $this->input->post('dni', TRUE),
                 // // 'ciudad' => $this->input->post('ciudad', TRUE),
                 // 'email' => $this->input->post('email', TRUE),
                 // 'password' => md5($this->input->post('password', TRUE)),
                 // 'rol_id' => $this->input->post('rol_id', TRUE),
-                'contacto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
+                // 'contacto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
                 // 'orden' => $this->input->post('orden', TRUE),
             );
 
@@ -222,8 +225,9 @@ class Contacto extends MX_Controller
                 'button' => 'Modificar',
                 'action' => site_url('privado/contacto/update_action'),
                 'data_fields' => array(
-                    'contacto_nombre' => set_value('contacto_nombre', $row->nombre),
-                    'contacto_telefono' => set_value('contacto_telefono', $row->telefono),
+                    'contacto_nombre' => set_value('contacto_nombre', $row->contacto_nombre),
+                    'contacto_telefono' => set_value('contacto_telefono', $row->contacto_telefono),
+                    'contacto_activo' => set_value('contacto_activo', $row->contacto_activo),
                     // 'apellidos' => set_value('apellidos', $row->apellidos),
                     // // 'dni' => set_value('dni', $row->dni),
                     // // 'ciudad' => set_value('ciudad', $row->ciudad),
@@ -259,6 +263,7 @@ class Contacto extends MX_Controller
             $data = array(
                 'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
                 'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
+                'contacto_activo' => $this->input->post('contacto_activo', TRUE),
                 // 'apellidos' => $this->input->post('apellidos', TRUE),
                 // // 'dni' => $this->input->post('dni', TRUE),
                 // // 'ciudad' => $this->input->post('ciudad', TRUE),

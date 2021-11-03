@@ -18,7 +18,7 @@ class MContacto_priv extends CI_Model
     // get all
     function get_all()
     {
-        $this->db->select('contactos.contacto_nombre,contactos.contacto_telefono');
+        $this->db->select('contactos.contacto_nombre,contactos.contacto_telefono,contactos.contacto_activo,contactos.contacto_id');
         $this->db->order_by($this->id);
         // $this->db->join("rol", "contacto.rol_id = rol.rol_id", "left");
         return $this->db->get($this->table)->result();
@@ -34,7 +34,7 @@ class MContacto_priv extends CI_Model
     // get total rows
     function total_rows($q = NULL)
     {
-        $this->db->select('contactos.contacto_nombre,contactos.contacto_telefono');
+        $this->db->select('contactos.contacto_nombre,contactos.contacto_telefono,contactos.contacto_activo,contactos.contacto_id');
 
         // $this->db->join("rol", "contacto.rol_id = rol.rol_id", "left");
         if (!empty($q)) {
@@ -49,7 +49,7 @@ class MContacto_priv extends CI_Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $oc = '', $od = '')
     {
-        $this->db->select('contactos.contacto_nombre,contactos.contacto_telefono');
+        $this->db->select('contactos.contacto_nombre,contactos.contacto_telefono,contactos.contacto_activo,contactos.contacto_id');
 
 
         
