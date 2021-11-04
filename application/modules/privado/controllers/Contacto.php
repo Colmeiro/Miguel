@@ -250,17 +250,17 @@ class Contacto extends MX_Controller
                 'button' => 'Modificar',
                 'action' => site_url('privado/contacto/update_action'),
                 'data_fields' => array(
-                    'contacto_nombre' => set_value('contacto_nombre', $row->contacto_nombre),
-                    'contacto_telefono' => set_value('contacto_telefono', $row->contacto_telefono),
-                    'contacto_activo' => set_value('contacto_activo', $row->contacto_activo),
-                    'contacto_id' => set_value('contacto_id', $row->contacto_id),
-                    // 'apellidos' => set_value('apellidos', $row->apellidos),
-                    // // 'dni' => set_value('dni', $row->dni),
-                    // // 'ciudad' => set_value('ciudad', $row->ciudad),
-                    // 'email' => set_value('email', $row->email),
-                    // 'rol_id' => set_value('rol_id', $row->rol_id),
-                    // 'orden' => set_value('orden', $row->orden),
-                    // 'contacto_id' => set_value('contacto_id', $row->contacto_id),
+                'contacto_nombre' => set_value('contacto_nombre', $row->contacto_nombre),
+                'contacto_telefono' => set_value('contacto_telefono', $row->contacto_telefono),
+                'contacto_activo' => set_value('contacto_activo', $row->contacto_activo),
+                'contacto_id' => set_value('contacto_id', $row->contacto_id),
+                // 'apellidos' => set_value('apellidos', $row->apellidos),
+                // // 'dni' => set_value('dni', $row->dni),
+                // // 'ciudad' => set_value('ciudad', $row->ciudad),
+                // 'email' => set_value('email', $row->email),
+                // 'rol_id' => set_value('rol_id', $row->rol_id),
+                // 'orden' => set_value('orden', $row->orden),
+                // 'contacto_id' => set_value('contacto_id', $row->contacto_id),
                 )
             );
 

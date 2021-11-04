@@ -105,9 +105,9 @@
                                             <!-- <?/*<a href="<?= site_url('privado/usuario/read/' . $row->usuario_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i></a>
                                             <a href="<?= site_url('privado/usuario/update/' . $row->usuario_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i></a>
                                             <a href="<?= site_url('privado/usuario/delete/' . $row->usuario_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este usuario?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>*/?> -->
-                                            <a href="<?= site_url('privado/usuario/read/' . $row->usuario_id) ?>" class="color-l-gray mr-1"><i class="bx bx-search"></i></a>
-                                            <a href="<?= site_url('privado/usuario/update/' . $row->usuario_id) ?>" class="color-l-gray mr-1"><i class="bx bx-edit"></i></a>
-                                            <a href="<?= site_url('privado/usuario/delete/' . $row->usuario_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este usuario?')" class="color-l-gray"><i class="bx bx-trash"></i></a>
+                                            <a href="<?= site_url('privado/usuario/read/' . $row->usuario_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i>Ver</a>
+                                            <a href="<?= site_url('privado/usuario/update/' . $row->usuario_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i>Editar</a>
+                                            <a href="<?= site_url('privado/usuario/delete/' . $row->usuario_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este usuario?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i>Borrar</a>
                                         </td>
 
                                         <!-- Acciones Mobile -->

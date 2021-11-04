@@ -111,15 +111,9 @@
                                                 <div class="col-12">
                                                     <div class="form-group<?php form_error('contacto_activo') != '' ? ' has-error' : '' ?>">
                                                         <label for="contacto_activo">Activo <?php echo form_error('contacto_activo') ?></label>
-
-                                                        <!-- <div class="checkbox checkbox-primary ml-1">
-                                                            <label for="contacto_activo"></label>
-                                                            <?php daFormatoEdit($data_fields['contacto_activo'], 'contacto_activo', 'Activo', 'tinyint', 'checkbox', 0); ?>
-                                                        </div> -->
-
-                                                        <input type="checkbox" class="checkbox checkbox-primary ml-1" id="contacto_activo" checked> 
+                                                         
                                                         <label for="contacto_activo"></label>
-                                                        <?php daFormatoEdit($data_fields['contacto_activo'], 'contacto_activo', 'Activo', 'tinyint', 'checkbox', 0); ?>
+                                                        <?= daFormatoEdit($data_fields['contacto_activo'], 'contacto_activo', 'Activo', 'tinyint', 'checkbox', 0); ?>
                                                         
                                                         <?php if (form_error('contacto_activo') != '') { ?> <span class="help-block"><?php form_error('contacto_activo') ?></span> <?php } ?>
                                                     </div>

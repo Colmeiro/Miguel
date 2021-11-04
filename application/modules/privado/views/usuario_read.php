@@ -51,21 +51,21 @@
                                                 <td class="font-weight-bold">Apellidos</td>
                                                 <td><?php echo daFormato($data_fields['apellidos'], 'varchar', '0-#333333', '') ?></td>
                                             </tr>
-                                            <?/*<tr>
+                                            <!-- <?/*<tr>
                                                 <td class="font-weight-bold">DNI</td>
                                                 <td><?php echo daFormato($data_fields['dni'], 'varchar', '0-#333333', '') ?></td>
                                             </tr>
                                             <tr>
                                                 <td class="font-weight-bold">Ciudad</td>
                                                 <td><?php echo daFormato($data_fields['ciudad'], 'varchar', '0-#333333', '') ?></td>
-                                            </tr>*/?>
+                                            </tr>*/?> -->
                                             <tr>
                                                 <td class="font-weight-bold">Email</td>
                                                 <td class="font-xs-smaller"><?php echo daFormato($data_fields['email'], 'email', '0-#333333', '') ?></td>
                                             </tr>
                                             <tr>
                                                 <td class="font-weight-bold">Rol</td>
-                                                <td><? foreach ($s_rol_id as $c) {
+                                                <td><?php foreach ($s_rol_id as $c) {
                                                         if ($c->rol_id == $data_fields['rol_id']) {
                                                             echo $c->nombre;
                                                         }
@@ -82,10 +82,10 @@
                                                     <? } ?>
                                                 </td>
                                             </tr>
-                                            <?/*<tr>
+                                            <!-- <?/*<tr>
                                                 <td class="font-weight-bold">Orden</td>
                                                 <td><?php echo daFormato($data_fields['orden'], 'int', '0-#333333', '') ?></td>
-                                            </tr>*/?>
+                                            </tr>*/?> -->
                                         </table>
                                     </div>
                                     <div class="row">

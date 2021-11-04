@@ -16,9 +16,9 @@
                     </div>
 
                     <div class="col-12">
-                        <?/*
+                       
                         <h4 class="content-header-title float-left no-border mb-0 text-capitalize"><i class="bx bx-group"></i><?= $titulo ?></h4>
-                        */?>
+                       
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="row match-height">
                     <div class="col-md-6 col-12">
                         <div class="card">
-                            <? if (isset($subtitulo) && $subtitulo=='Añadir Usuario') {
+                            <?php if (isset($subtitulo) && $subtitulo=='Añadir Usuario') {
                                 //$bg_card="bg-light-blue";
                                 $bg_card="bg-light-blue";
                                 $dots="";
@@ -61,7 +61,7 @@
                                                         <? if (form_error('apellidos') != '') { ?> <span class="help-block"><?= form_error('apellidos') ?></span> <? } ?>
                                                     </div>
                                                 </div>
-                                                <?/*<div class="col-12">
+                                                <!-- <?/*<div class="col-12">
                                                     <div class="form-group<?= form_error('dni') != '' ? ' has-error' : '' ?>">
                                                         <label for="dni">DNI <?php echo form_error('dni') ?></label>
                                                         <?= daFormatoEdit($data_fields['dni'], 'dni', 'Dni', 'varchar', 'varchar', 1); ?>
@@ -74,7 +74,7 @@
                                                         <?= daFormatoEdit($data_fields['ciudad'], 'ciudad', 'Ciudad', 'varchar', 'varchar', 1); ?>
                                                         <? if (form_error('ciudad') != '') { ?> <span class="help-block"><?= form_error('ciudad') ?></span> <? } ?>
                                                     </div>
-                                                </div>*/?>
+                                                </div>*/?> -->
                                                 <div class="col-12">
                                                     <div class="form-group<?= form_error('email') != '' ? ' has-error' : '' ?>">
                                                         <label for="email">Email <?php echo form_error('email') ?></label>
@@ -82,9 +82,7 @@
                                                         <? if (form_error('email') != '') { ?> <span class="help-block"><?= form_error('email') ?></span> <? } ?>
                                                     </div>
                                                 </div>
-                                                <?
-                                                if (strpos($action, 'create_action') !== FALSE) {
-                                                ?>
+                                                <?php if (strpos($action, 'create_action') !== FALSE) { ?>
                                                     <div class="col-12">
                                                         <div class="form-group<?= form_error('password') != '' ? ' has-error' : '' ?>">
                                                             <label for="password">Password <?php echo form_error('password') ?></label>
@@ -92,18 +90,24 @@
                                                             <? if (form_error('password') != '') { ?> <span class="help-block"><?= form_error('password') ?></span> <? } ?>
                                                         </div>
                                                     </div>
-                                                <?
-                                                }
-                                                ?>
+                                                <?php };?>
+                                                
                                                 <div class="col-12">
-                                                    <div class="form-group<?= form_error('rol_id') != '' ? ' has-error' : '' ?>">
+                                                    <div class="form-group<?php form_error('rol_id') != '' ? ' has-error' : '' ?>">
                                                         <label for="rol_id">Rol <?php echo form_error('rol_id') ?></label>
-                                                        <select class="form-control" name="rol_id" id="rol_id" required><? foreach ($s_rol_id as $c) {
-                                                                                                                        ?>
-                                                                <option value="<?= $c->rol_id ?>" <?= $c->rol_id == $data_fields['rol_id'] ? 'selected="selected"' : '' ?>><?= $c->nombre ?></option>
-                                                            <?
-                                                                                                                        } ?></select>
-                                                        <? if (form_error('rol_id') != '') { ?> <span class="help-block"><?= form_error('rol_id') ?></span> <? } ?>
+                                                        
+                                                        <select class="form-control" name="rol_id" id="rol_id" required>
+                                                            <?php foreach ($s_rol_id as $c) { ?>
+
+                                                                <option value="<?php $c->rol_id ?>" 
+                                                                    <?php $c->rol_id == $data_fields['rol_id'] ? 'selected="selected"' : '' ?>>
+                                                                    <?php $c->nombre ?>
+                                                                </option>
+                                                                
+                                                            <?php }; ?>
+                                                        </select>
+
+                                                        <?php if (form_error('rol_id') != '') { ?> <span class="help-block"><?= form_error('rol_id') ?></span> <?php }; ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -118,15 +122,15 @@
                                                         <? if (form_error('activo') != '') { ?> <span class="help-block"><?= form_error('activo') ?></span> <? } ?>
                                                     </div>
                                                 </div>
-                                                <?/*<div class="col-12">
+                                                <!-- <?/*<div class="col-12">
                                                     <div class="form-group<?= form_error('orden') != '' ? ' has-error' : '' ?>">
                                                         <label for="orden">Orden <?php echo form_error('orden') ?></label>
                                                         <?= daFormatoEdit($data_fields['orden'], 'orden', 'Orden', 'int', 'int', 0); ?>
                                                         <? if (form_error('orden') != '') { ?> <span class="help-block"><?= form_error('orden') ?></span> <? } ?>
                                                     </div>
-                                                </div>*/?>
+                                                </div>*/?> -->
 
-                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario_id; ?>" />
+                                                <input type="hidden" name="usuario_id" value="<? echo $usuario_id; ?>" />
 
 
                                                 <div class="col-6 d-flex justify-content-start">

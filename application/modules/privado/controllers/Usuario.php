@@ -177,11 +177,11 @@ class Usuario extends MX_Controller
 
     public function create_action()
     {
-        $this->_rules('create');
+        // $this->_rules('create');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->create();
-        } else {
+        // if ($this->form_validation->run() == FALSE) {
+        //     $this->create();
+        // } else {
             $data = array(
                 'fecha_creacion' => date('Y-m-d H:i:s'),
                 'nombre' => $this->input->post('nombre', TRUE),
@@ -199,7 +199,7 @@ class Usuario extends MX_Controller
             $this->session->set_flashdata('message', 'Usuario creado correctamente');
             redirect(site_url('privado/usuario'));
         }
-    }
+    // }
 
 
     public function update($id)
@@ -238,11 +238,11 @@ class Usuario extends MX_Controller
 
     public function update_action()
     {
-        $this->_rules('update');
+        // $this->_rules('update');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('usuario_id', TRUE));
-        } else {
+        // if ($this->form_validation->run() == FALSE) {
+        //     $this->update($this->input->post('usuario_id', TRUE));
+        // } else {
             $data = array(
                 'nombre' => $this->input->post('nombre', TRUE),
                 'apellidos' => $this->input->post('apellidos', TRUE),
@@ -258,7 +258,7 @@ class Usuario extends MX_Controller
             $this->session->set_flashdata('message', 'Usuario modificado correctamente');
             redirect(site_url('privado/usuario'));
         }
-    }
+    // }
 
     public function delete($id)
     {

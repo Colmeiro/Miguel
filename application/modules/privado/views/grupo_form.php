@@ -14,9 +14,9 @@
 						</ol>
 					</div>
 					<div class="col-12">
-						<?/*
-							<h4 class="content-header-title float-left no-border mb-0 text-capitalize"><i class="bx bx-building"></i><?= $titulo ?></h4>
-							*/ ?>
+						
+						<h4 class="content-header-title float-left no-border mb-0 text-capitalize"><i class="bx bx-building"></i><?= $titulo ?></h4>
+							
 					</div>
 				</div>
 			</div>
@@ -26,13 +26,13 @@
 				<div class="row match-height">
 					<div class="col-md-12 col-lg-8 col-xl-6 col-12">
 						<div class="card">
-							<? if (isset($subtitulo) && $subtitulo == 'Añadir Grupo') {
+							<?php if (isset($subtitulo) && $subtitulo == 'Añadir Grupo') {
 								$bg_card = "bg-light-blue";
 								$dots = "";
 							} else {
 								$bg_card = "bg-light-green";
 								$dots = ": ";
-							} ?>
+							}; ?>
 							<div class="card-header <?= $bg_card ?> mb-2">
 								<h4 class="card-title"><?= isset($subtitulo) ? $subtitulo : '' ?><?= $dots; ?> <?php echo daFormato($data_fields['nombre'], 'varchar', '0-#475F7B', '') ?></h4>
 							</div>
@@ -51,7 +51,7 @@
 														<? if (form_error('nombre') != '') { ?> <span class="help-block"><?= form_error('nombre') ?></span> <? } ?>
 													</div>
 												</div>
-												<?/*<div class="col-12">
+												<!-- <?/*<div class="col-12">
 													<div class="form-group<?= form_error('cif') != '' ? ' has-error' : '' ?>">
 														<label for="cif">CIF <?php echo form_error('cif') ?></label>
 														<?= daFormatoEdit($data_fields['cif'], 'cif', 'CIF', 'varchar', 'varchar', 1); ?>
@@ -188,7 +188,7 @@
 																																					} ?></select>
 														<? if (form_error('partner_delivery_id') != '') { ?> <span class="help-block"><?= form_error('partner_delivery_id') ?></span> <? } ?>
 													</div>
-												</div>*/?>
+												</div>*/?> -->
 
 												<div class="col-12">
 													<div class="form-group<?= form_error('orden') != '' ? ' has-error' : '' ?>">
@@ -212,7 +212,7 @@
 													</div>
 												</div>
 
-												<input type="hidden" name="grupo_id" value="<?php echo $grupo_id; ?>" />
+												<input type="hidden" name="grupo_id" value="<? echo $grupo_id; ?>" />
 												<div class="col-4 d-flex justify-content-start">
 
 													<a href="<?php echo site_url('privado/grupo') ?>" class="btn btn-light-secondary ml-0"><i class="bx bx-chevrons-left"></i><span class="d-none d-sm-inline-block">Volver</span></a> </div>

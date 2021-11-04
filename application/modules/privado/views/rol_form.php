@@ -79,11 +79,11 @@
                                                         <label for="es_admin"></label>
 														</div>
 														
-														<? if (form_error('es_admin') != '') { ?> <span class="help-block"><?= form_error('es_admin') ?></span> <? } ?>
+														<?php if (form_error('es_admin') != '') { ?> <span class="help-block"><?= form_error('es_admin') ?></span> <?php }; ?>
 													</div>
 												</div>
 
-												<input type="hidden" name="rol_id" value="<?php echo $rol_id; ?>" />
+												<input type="hidden" name="rol_id" value="<? echo $rol_id; ?>" />
 
 												<div class="col-6 d-flex justify-content-start">
 

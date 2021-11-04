@@ -1,6 +1,4 @@
-<?
-$this->load->view('loader', array('has_data' => !empty($almacen_data)));
-?>
+<?php $this->load->view('loader', array('has_data' => !empty($almacen_data))); ?>
 
 <div class="app-content content">
     <div class="content-overlay"></div>
@@ -34,7 +32,7 @@ $this->load->view('loader', array('has_data' => !empty($almacen_data)));
                             <div class="col-md-12">
 
                                 <!-- ANTES -->
-                                <?/*
+                                
                         <div class="input-group limited">
                             <span class="label-text">Limitado a </span>
                             <input type="number" id="limit" name="limit" class="form-control w-80" step="100" value="<?=!empty($limit)?$limit:''?>">
@@ -44,7 +42,7 @@ $this->load->view('loader', array('has_data' => !empty($almacen_data)));
 
                     
                         <button type="submit" id="submit_post_check" class="btn btn-primary">Aplicar</button>
-                        */ ?>
+                        
                                 <div class="collapsible collapse-icon accordion-icon-rotate">
                                     <div class="card collapse-header">
                                         <div id="limitCollapse" class="card-header" data-toggle="collapse" role="button" data-target="#limitCollapseDetail" aria-expanded="false" aria-controls="limitCollapseDetail">
@@ -91,7 +89,7 @@ $this->load->view('loader', array('has_data' => !empty($almacen_data)));
                                 <div class="heading-elements search-pep">
                                     <ul class="list-inline mb-0">
                                         <li class="search-li">
-                                            <?/* <form action="<?php echo site_url('privado/almacen/view'); ?>" method="post"> */ ?>
+                                            <form action="<?php echo site_url('privado/almacen/view'); ?>" method="post"> 
                                             <fieldset class="has-icon-left position-relative">
                                                 <input type="text" id="buscartabla" class="form-control single-daterange" placeholder="<?php echo $limit ?> Resultados" name="q" value="<?= $q ?>">
                                                 <div class="form-control-position">
@@ -101,7 +99,7 @@ $this->load->view('loader', array('has_data' => !empty($almacen_data)));
                                                     <span><i class="bx bx-right-arrow-alt"></i></span>
                                                 </button>
                                             </fieldset>
-                                            <?/* </form> */ ?>
+                                            </form>
                                         </li>
                                     </ul>
                                 </div>
@@ -128,7 +126,7 @@ $this->load->view('loader', array('has_data' => !empty($almacen_data)));
                                 </tr>
                             </thead>
                             <tbody>
-                                <?
+                                <?php
                                 foreach ($almacen_data as $row) {
                                 ?>
                                     <tr>
@@ -139,7 +137,7 @@ $this->load->view('loader', array('has_data' => !empty($almacen_data)));
                                         <td class="text-left" data-order="<?= $row->tag ?>" data-search="<?= $row->tag ?>"><?php echo daFormato($row->tag, 'varchar', '0-#333333', '', '', '') ?></td>
 
                                     </tr>
-                                <?
+                                <?php
                                 }
                                 ?>
                             </tbody>
@@ -158,7 +156,7 @@ $this->load->view('loader', array('has_data' => !empty($almacen_data)));
                     <!-- datatable ends -->
 
                     <!-- Pagination -->
-                    <?/*<nav aria-label="Page navigation example">
+                    <!-- <?/*<nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-end mt-2 mr-2">
                         <?
                         if(strpos($pagination, 'page-item previous') === FALSE && strpos($pagination, 'page-item activ') !== FALSE) {
@@ -184,7 +182,7 @@ $this->load->view('loader', array('has_data' => !empty($almacen_data)));
                         }
                         ?>
                         </ul>
-                    </nav>*/ ?>
+                    </nav>*/ ?> -->
                 </div>
             </section>
         </div>
