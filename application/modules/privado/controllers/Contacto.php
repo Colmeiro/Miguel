@@ -280,11 +280,11 @@ class Contacto extends MX_Controller
 
     public function update_action()
     {
-        $this->_rules('update');
+        // $this->_rules('update');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('contacto_id', TRUE));
-        } else {
+        // if ($this->form_validation->run() == FALSE) {
+        //     $this->update($this->input->post('contacto_id', TRUE));
+        // } else {
             
             $data = array(
                 'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
@@ -301,8 +301,8 @@ class Contacto extends MX_Controller
             $this->MContacto_priv->update($this->input->post('contacto_id', TRUE), $data);
             $this->session->set_flashdata('message', 'contacto modificado correctamente');
             redirect(site_url('privado/contacto'));
-        }
     }
+    
 
     public function delete($id)
     {
