@@ -176,7 +176,7 @@ class Contacto extends MX_Controller
                 // 'orden' => set_value('orden'),
             )
         );
-        $this->db->order_by('contacto_id', 'ASC');
+        // $this->db->order_by('contacto_id', 'ASC');
         // $data['s_rol_id'] = $this->db->get('rol')->result();
         // $data['seccion'] = 'admin-users';
         $data['main'] = 'contacto_form';
@@ -187,33 +187,59 @@ class Contacto extends MX_Controller
     }
 
 
+    // public function create_action()
+    // {
+    //     $this->_rules('create');
+
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $this->create();
+    //     } else {
+    //         $data = array(
+    //             // 'fecha_creacion' => date('Y-m-d H:i:s'),
+    //             'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
+    //             'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
+    //             'contacto_activo' => $this->input->post('contacto_activo', TRUE),
+    //             // 'apellidos' => $this->input->post('apellidos', TRUE),
+    //             // // 'dni' => $this->input->post('dni', TRUE),
+    //             // // 'ciudad' => $this->input->post('ciudad', TRUE),
+    //             // 'email' => $this->input->post('email', TRUE),
+    //             // 'password' => md5($this->input->post('password', TRUE)),
+    //             // 'rol_id' => $this->input->post('rol_id', TRUE),
+    //             // 'contacto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
+    //             // 'orden' => $this->input->post('orden', TRUE),
+    //         );
+
+    //         $this->MContacto_priv->insert($data);
+    //         $this->session->set_flashdata('message', 'contacto creado correctamente');
+    //         redirect(site_url('privado/contacto'));
+    //     }
+    // }
+
+
     public function create_action()
     {
-        $this->_rules('create');
+        $data = array(
+        // 'fecha_creacion' => date('Y-m-d H:i:s'),
+        'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
+        'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
+        'contacto_activo' => $this->input->post('contacto_activo', TRUE),
+        // 'apellidos' => $this->input->post('apellidos', TRUE),
+        // // 'dni' => $this->input->post('dni', TRUE),
+        // // 'ciudad' => $this->input->post('ciudad', TRUE),
+        // 'email' => $this->input->post('email', TRUE),
+        // 'password' => md5($this->input->post('password', TRUE)),
+        // 'rol_id' => $this->input->post('rol_id', TRUE),
+        // 'contacto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
+        // 'orden' => $this->input->post('orden', TRUE),
+        );
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->create();
-        } else {
-            $data = array(
-                // 'fecha_creacion' => date('Y-m-d H:i:s'),
-                'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
-                'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
-                'contacto_activo' => $this->input->post('contacto_activo', TRUE),
-                // 'apellidos' => $this->input->post('apellidos', TRUE),
-                // // 'dni' => $this->input->post('dni', TRUE),
-                // // 'ciudad' => $this->input->post('ciudad', TRUE),
-                // 'email' => $this->input->post('email', TRUE),
-                // 'password' => md5($this->input->post('password', TRUE)),
-                // 'rol_id' => $this->input->post('rol_id', TRUE),
-                // 'contacto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
-                // 'orden' => $this->input->post('orden', TRUE),
-            );
-
-            $this->MContacto_priv->insert($data);
-            $this->session->set_flashdata('message', 'contacto creado correctamente');
-            redirect(site_url('privado/contacto'));
-        }
+        $this->MContacto_priv->insert($data);
+        $this->session->set_flashdata('message', 'contacto creado correctamente');
+        redirect(site_url('privado/contacto'));
     }
+    
+
+
 
 
     public function update($id)
