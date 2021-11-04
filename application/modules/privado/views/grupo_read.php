@@ -38,7 +38,7 @@
 
 	                                <tr><td class="font-weight-bold">Nombre</td><td><?php echo daFormato($data_fields['nombre'],'varchar','0-#333333','') ?></td></tr>
 
-	                                <?/*<tr><td class="font-weight-bold">CIF</td><td><?php echo daFormato($data_fields['cif'],'varchar','0-#333333','') ?></td></tr>
+	                                <!-- <?/*<tr><td class="font-weight-bold">CIF</td><td><?php echo daFormato($data_fields['cif'],'varchar','0-#333333','') ?></td></tr>
 
 	                                <tr><td class="font-weight-bold">Sociedad</td><td><?php echo daFormato($data_fields['sociedad'],'varchar','0-#333333','') ?></td></tr>
 
@@ -107,7 +107,7 @@
 										
 										}?>
 										</td>
-									</tr>*/?>
+									</tr>*/?> -->
 
 									<tr><td class="font-weight-bold">Orden</td><td><?php echo daFormato($data_fields['orden'],'int','0-#333333','') ?></td></tr>
 
@@ -129,7 +129,7 @@
 										<td class="font-weight-bold">Usuarios</td>
 										<td>
 											<div class="mr-sm-1 display-inline-block text-right">
-											<? 
+											<?php 
 											$str_usuario_grupo = '<div class="hidden-xs">';
 											foreach($usuario_grupo as $ind => $miembro){
 												if($ind > 0) {
@@ -144,7 +144,7 @@
 											</div>
 
 											<div class="display-inline-block">
-											<? 
+											<?php 
 											$str_usuario_grupo = '';
 											foreach($usuario_grupo as $ind => $miembro){
 												if($ind > 0) {

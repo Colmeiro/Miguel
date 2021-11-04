@@ -92,6 +92,7 @@
                                                     </div>
                                                 <?php };?>
                                                 
+
                                                 <div class="col-12">
                                                     <div class="form-group<?php form_error('rol_id') != '' ? ' has-error' : '' ?>">
                                                         <label for="rol_id">Rol <?php echo form_error('rol_id') ?></label>
@@ -99,7 +100,7 @@
                                                         <select class="form-control" name="rol_id" id="rol_id" required>
                                                             <?php foreach ($s_rol_id as $c) { ?>
 
-                                                                <option value="<?php $c->rol_id ?>" 
+                                                                <option value="<?php $c->rol_id ?>"
                                                                     <?php $c->rol_id == $data_fields['rol_id'] ? 'selected="selected"' : '' ?>>
                                                                     <?php $c->nombre ?>
                                                                 </option>
@@ -110,6 +111,8 @@
                                                         <?php if (form_error('rol_id') != '') { ?> <span class="help-block"><?= form_error('rol_id') ?></span> <?php }; ?>
                                                     </div>
                                                 </div>
+
+                                                
                                                 <div class="col-12">
                                                     <div class="form-group<?= form_error('activo') != '' ? ' has-error' : '' ?>">
                                                         <label for="activo">Activo <?php echo form_error('activo') ?></label>
