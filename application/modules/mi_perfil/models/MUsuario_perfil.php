@@ -3,11 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class MContacto_perfil extends CI_Model
+class MUsuario_perfil extends CI_Model
 {
 
-    public $table = 'contactos';
-    public $id = 'contactos_id';
+    public $table = 'usuario';
+    public $id = 'usuario_id';
     public $order = 'DESC';
 
     function __construct()
@@ -23,9 +23,9 @@ class MContacto_perfil extends CI_Model
     }
 
     // get data by grupo_id
-    function get_grupo_by_contacto_id($id)
+    function get_grupo_by_usuario_id($id)
     {
-        $this->db->select('contactos.contacto_nombre as nombre');
+        $this->db->select('grupo.nombre as nombre');
         
         return $this->db->get('grupo')->result();
     }

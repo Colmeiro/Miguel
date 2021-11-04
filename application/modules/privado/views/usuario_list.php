@@ -16,7 +16,8 @@
                     </div>
 
                     <div class="col-12">
-                       <?/* <h4 class="content-header-title float-left no-border mb-0 text-capitalize"><i class="bx bx-group"></i><?= $titulo ?></h4> */?>
+                       <h4 class="content-header-title float-left no-border mb-0 text-capitalize"><i class="bx bx-group"></i><?= $titulo ?></h4>
+                       <br></br>
                        <?php echo anchor(site_url('privado/usuario/create'), 'Añadir Usuario<i class="bx bx-plus"></i>', 'class="btn btn-primary add-btn"'); ?>
                     </div>
                 </div>
@@ -46,9 +47,9 @@
                                     </form>
 
                                 </li>
-                                <?/*
-                                <li class="ml-2"><?php echo anchor(site_url('privado/usuario/create'), 'Añadir Usuario<i class="bx bx-plus"></i>', 'class="btn btn-primary add-btn"'); ?></li>
-                                */?>
+                                
+                                <!-- <li class="ml-2"><?php echo anchor(site_url('privado/usuario/create'), 'Añadir Usuario<i class="bx bx-plus"></i>', 'class="btn btn-primary add-btn"'); ?></li> -->
+                                
                             </ul>
                         </div>
                     </div>
@@ -57,8 +58,6 @@
                         <table id="table-extended-transactions" class="table mb-0">
                             <thead class="bg-pep">
                                 <tr>
-
-
                                     <th class="<?= sentidobusquedacrd('nombre', 'usuario.', true) ?>">
                                         <a href="<?php echo site_url('privado/usuario/view?ob=' . sentidobusquedacrd('nombre', 'usuario.')); ?>">Nombre</a>
                                     </th>
@@ -74,9 +73,9 @@
                                     <th class="<?= sentidobusquedacrd('activo', 'usuario.', true) ?> text-center">
                                         <a href="<?php echo site_url('privado/usuario/view?ob=' . sentidobusquedacrd('activo', 'usuario.')); ?>">Activo</a>
                                     </th>
-                                    <?/*<th class="<?= sentidobusquedacrd('orden', 'usuario.', true) ?> d-none d-sm-table-cell text-center">
+                                    <!-- <th class="<?= sentidobusquedacrd('orden', 'usuario.', true) ?> d-none d-sm-table-cell text-center">
                                         <a href="<?php echo site_url('privado/usuario/view?ob=' . sentidobusquedacrd('orden', 'usuario.')); ?>">Orden</a>
-                                    </th>*/?>
+                                    </th> -->
                                     <th class="text-center"><span class="d-none d-sm-block">Acciones</span></th>
                                 </tr>
                             </thead>
