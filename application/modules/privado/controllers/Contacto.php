@@ -166,25 +166,24 @@ class Contacto extends MX_Controller
                 'contacto_nombre' => set_value('contacto_nombre'),
                 'contacto_telefono' => set_value('contacto_telefono'),
                 'contacto_activo' => set_value('contacto_activo'),
+                'contacto_id' => set_value('contacto_id'),
                 // 'apellidos' => set_value('apellidos'),
                 // // 'dni' => set_value('dni'),
                 // // 'ciudad' => set_value('ciudad'),
                 // 'email' => set_value('email'),
                 // 'password' => set_value('password'),
                 // 'rol_id' => set_value('rol_id'),
-                'contacto_activo' => set_value('activo') ? set_value('activo') : 0,
                 // 'orden' => set_value('orden'),
-                // 'contacto_id' => set_value('contacto_id'),
             )
         );
         $this->db->order_by('contacto_id', 'ASC');
-        $data['s_rol_id'] = $this->db->get('rol')->result();
-        $data['seccion'] = 'admin-users';
+        // $data['s_rol_id'] = $this->db->get('rol')->result();
+        // $data['seccion'] = 'admin-users';
         $data['main'] = 'contacto_form';
 
         $data['titulo'] = 'Gestión de contactos';
         $data['subtitulo'] = 'Añadir contacto';
-        $this->load->view('template', $data);
+        $this->load->view('contacto_form', $data);
     }
 
 

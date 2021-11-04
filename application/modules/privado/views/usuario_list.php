@@ -81,9 +81,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?
-                                foreach ($usuario_data as $row) {
-                                ?>
+                                <?php foreach ($usuario_data as $row) {  ?>
                                     <tr>
                                         <td class=" text-left"><?php echo daFormato($row->nombre, 'varchar', '0-#5A8DEE', '', '', '') ?>
                                             <span class="d-sm-none">
@@ -96,19 +94,18 @@
                                         <td class=" text-left d-none d-sm-table-cell"><?php echo daFormato($row->email, 'email', '0-#333333', '', '', '') ?></td>
                                         <td class=" text-left d-none d-sm-table-cell"><?php echo daFormato($row->rol_id, 'relacionado', '0-#333333', '', '', '') ?></td>
                                         <td class=" text-center">
-                                            <?php //echo daFormato($row->activo, 'checkbox', '0-#333333', '', '', '') ?>
-                                            <? if ($row->activo==1) { ?>
+                                            <?php if ($row->activo==1) { ?>
                                                 <span class="badge badge-light-success badge-pill">ACTIVO</span>
-                                            <? }else{ ?>
+                                            <?php }else{ ?>
                                                 <span class="badge badge-light-danger badge-pill">NO ACTIVO</span>
-                                            <? } ?>
+                                            <?php } ?>
                                         </td>
-                                        <?/*<td class=" text-center d-none d-sm-table-cell"><?php echo daFormato($row->orden, 'int', '0-#333333', '', '', '') ?></td>*/?>
+                                        <!-- <?/*<td class=" text-center d-none d-sm-table-cell"><?php echo daFormato($row->orden, 'int', '0-#333333', '', '', '') ?></td>*/?> -->
                                         <!-- Acciones Desktop -->
                                         <td class="text-center btn-acciones d-none d-md-table-cell">
-                                            <?/*<a href="<?= site_url('privado/usuario/read/' . $row->usuario_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i></a>
+                                            <!-- <?/*<a href="<?= site_url('privado/usuario/read/' . $row->usuario_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i></a>
                                             <a href="<?= site_url('privado/usuario/update/' . $row->usuario_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i></a>
-                                            <a href="<?= site_url('privado/usuario/delete/' . $row->usuario_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este usuario?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>*/?>
+                                            <a href="<?= site_url('privado/usuario/delete/' . $row->usuario_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este usuario?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>*/?> -->
                                             <a href="<?= site_url('privado/usuario/read/' . $row->usuario_id) ?>" class="color-l-gray mr-1"><i class="bx bx-search"></i></a>
                                             <a href="<?= site_url('privado/usuario/update/' . $row->usuario_id) ?>" class="color-l-gray mr-1"><i class="bx bx-edit"></i></a>
                                             <a href="<?= site_url('privado/usuario/delete/' . $row->usuario_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este usuario?')" class="color-l-gray"><i class="bx bx-trash"></i></a>
@@ -126,9 +123,7 @@
                                         </div>
                                         </td>
                                     </tr>
-                                <?
-                                }
-                                ?>
+                                <?php }; ?>
                             </tbody>
                         </table>
                     </div>
