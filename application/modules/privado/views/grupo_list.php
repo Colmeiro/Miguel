@@ -13,16 +13,13 @@
                             </ol>
                         </div>
                         <div class="col-12">
-                            <?/*
+                            
                             <h4 class="content-header-title float-left no-border mb-0 text-capitalize"><i class="bx bx-building"></i><?= $titulo ?></h4>
-                            */?>
-                             <?
-                            if(modules::run('security/check_admin')) {
-                            ?>
+                            <br></br>
+                             <?php if(modules::run('security/check_admin')) { ?>
                                 <?php echo anchor(site_url('privado/grupo/create'), 'Añadir Grupo <i class="bx bx-plus"></i>', 'class="btn btn-primary add-btn"'); ?>
-                            <?
-                            }
-                            ?>
+                            <?php }; ?>
+
                         </div>
                     </div>
                 </div>
@@ -57,17 +54,17 @@
             <table id="table-extended-transactions" class="table mb-0">
                 <thead class="bg-pep">
                     <tr>
-                        <?/*<th class="<?= sentidobusquedacrd('grupo_id','grupo.',true)?> w-80 d-none d-sm-table-cell">
+                        <!-- <?/*<th class="<?= sentidobusquedacrd('grupo_id','grupo.',true)?> w-80 d-none d-sm-table-cell">
                             <a href="<?php echo site_url('privado/grupo/view?ob='.sentidobusquedacrd('grupo_id','grupo.')); ?>">ID</a>
-                        </th>*/?>
+                        </th>*/?> -->
 
                         <th class="<?=sentidobusquedacrd('nombre','grupo.',true)?>">
                         <a href="<?php echo site_url('privado/grupo/view?ob='.sentidobusquedacrd('nombre','grupo.')); ?>">Nombre</a>
                         </th>
-                        <?/*<th class="<?=sentidobusquedacrd('sociedad','grupo.',true)?> d-none d-sm-table-cell">
+                        <!-- <th class="<?=sentidobusquedacrd('sociedad','grupo.',true)?> d-none d-sm-table-cell">
                         <a href="<?php echo site_url('privado/grupo/view?ob='.sentidobusquedacrd('sociedad','grupo.')); ?>">Sociedad</a>
-                        </th>
-                        <th class="<?=sentidobusquedacrd('telefono','grupo.',true)?> d-none d-sm-table-cell">
+                        </th> -->
+                        <!-- <th class="<?=sentidobusquedacrd('telefono','grupo.',true)?> d-none d-sm-table-cell">
                         <a href="<?php echo site_url('privado/grupo/view?ob='.sentidobusquedacrd('telefono','grupo.')); ?>">Telefono</a>
                         </th>
                         <th class="<?=sentidobusquedacrd('email','grupo.',true)?> d-none d-sm-table-cell">
@@ -75,7 +72,7 @@
                         </th>
                         <th class="<?=sentidobusquedacrd('franquiciado','grupo.',true)?> d-none d-sm-table-cell text-center">
                         <a href="<?php echo site_url('privado/grupo/view?ob='.sentidobusquedacrd('franquiciado','grupo.')); ?>">Franquiciado</a>
-                        </th>*/?>
+                        </th> -->
                         <th class="<?=sentidobusquedacrd('orden','grupo.',true)?> text-center">
                         <a href="<?php echo site_url('privado/grupo/view?ob='.sentidobusquedacrd('orden','grupo.')); ?>">Orden</a>
                         </th>
@@ -95,60 +92,54 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?
-                    foreach ($grupo_data as $row) {
-                    ?>
+                    <?php foreach ($grupo_data as $row) { ?>
                         <tr>
 
-                            <?/*<td class="text-left d-none d-sm-table-cell"><?php echo daFormato($row->grupo_id,'int','0-#5A8DEE','') ?></td>*/?>
-                            <td class=" text-left"><?php echo daFormato($row->nombre,'varchar','0-#333333','','','') ?>
-                                <?/*<span class="d-sm-none">
+                            <!-- <?/*<td class="text-left d-none d-sm-table-cell"><?php echo daFormato($row->grupo_id,'int','0-#5A8DEE','') ?></td>*/?> -->
+                            <td class=" text-left"><?php echo $row->nombre; ?>
+                                <!-- <?/*<span class="d-sm-none">
                                     <br>
                                     <span class="rol-mvl"><strong>ID CENTRO</strong>: <?php echo daFormato($row->grupo_id,'int','0-#333333','') ?></span>
-                                </span>*/?>
+                                </span>*/?> -->
                             </td>
-                            <?/*<td class=" text-left d-none d-sm-table-cell"><?php echo daFormato($row->sociedad,'varchar','0-#333333','','','') ?></td>
+                            <!-- <td class=" text-left d-none d-sm-table-cell"><?php echo daFormato($row->sociedad,'varchar','0-#333333','','','') ?></td>
                             <td class=" text-left d-none d-sm-table-cell"><?php echo daFormato($row->telefono,'varchar','0-#333333','','','') ?></td>
-                            <td class=" text-left d-none d-sm-table-cell"><?php echo daFormato($row->email,'email','0-#333333','','','') ?></td>
-                            <td class=" text-center d-none d-sm-table-cell">
-                                <?php //echo daFormato($row->franquiciado,'checkbox','0-#333333','','','') ?>
-                                <? if ($row->franquiciado==1) { ?>
+                            <td class=" text-left d-none d-sm-table-cell"><?php echo daFormato($row->email,'email','0-#333333','','','') ?></td> -->
+                            
+                            <!-- bloque del if franquiciado -->
+
+                            <!-- <td class=" text-center d-none d-sm-table-cell">
+                                <?php if ($row->franquiciado==1) { ?>
                                     <span class="badge badge-light-success badge-pill">SÍ</span>
-                                <? }else{ ?>
+                                <?php }else{ ?>
                                     <span class="badge badge-light-danger badge-pill">NO</span>
-                                <? } ?>
-                            </td>*/?>
+                                <?php }; ?>
+                            </td> -->
+
                             <td class="text-center d-none d-sm-table-cell"><?php echo daFormato($row->orden, 'int', '0-#333333', '', '', '') ?></td>
                             <td class=" text-center">
-                                <?php //echo daFormato($row->activo,'checkbox','0-#333333','','','') ?>
-                                <? if ($row->activo==1) { ?>
+                                <?php if ($row->activo==1) { ?>
                                     <span class="badge badge-light-success badge-pill">ACTIVO</span>
-                                <? }else{ ?>
+                                <?php }else{ ?>
                                     <span class="badge badge-light-danger badge-pill">NO ACTIVO</span>
-                                <? } ?>
+                                <?php }; ?>
                             </td>
-                        <? 
-                        if(modules::run('security/check_admin')) {                       
-                        ?>
+                        <?php if(modules::run('security/check_admin')) { ?>
                             <td class=" text-center d-none d-sm-table-cell">
                                 <a href="<?=site_url('privado/usuario-grupo/view/' . $row->grupo_id)?>" class="btn btn-sm btn-outline-light"><i class="bx bx-buildings d-inline"></i><span class="d-inline">Editar</span></a>
                                 <br>
                                 <div class="num-usuarios-grupo"><?= $row->num_usuarios ?> <?= $row->num_usuarios == 1 ? 'usuario' : 'usuarios' ?></div>
                             </td>
-                        <?
-                        }
-                        ?>
+                        <?php }; ?>
                             <!-- Acciones Desktop -->
                             <td class="text-center btn-acciones d-none d-md-table-cell">
                                 <a href="<?=site_url('privado/grupo/read/'.$row->grupo_id) ?>" class="color-l-gray mr-1"><i class="bx bx-search"></i></a>
-                            <?
-                            if(modules::run('security/check_admin')) {
-                            ?>
+                            <?php if(modules::run('security/check_admin')) { ?>
+
                                 <a href="<?=site_url('privado/grupo/update/'.$row->grupo_id) ?>" class="color-l-gray mr-1"><i class="bx bx-edit"></i></a>
                                 <a href="<?=site_url('privado/grupo/delete/'.$row->grupo_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este grupo?')" class="color-l-gray"><i class="bx bx-trash"></i></a>
-                            <?
-                            }
-                            ?>
+                            <?php }; ?>
+
                             </td>
                             <!-- Acciones Mobile -->
                             <td class="text-center btn-acciones d-table-cell d-md-none">
@@ -156,21 +147,17 @@
                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                 <div class="dropdown-menu dropdown-menu-right">
                                    <a class="dropdown-item" href="<?=site_url('privado/grupo/read/'.$row->grupo_id) ?>"><i class="bx bx-show-alt mr-1"></i> Ver</a>
-                                <?
-                                if(modules::run('security/check_admin')) {
-                                ?>
+                                <?php if(modules::run('security/check_admin')) { ?>
+
                                    <a class="dropdown-item" href="<?=site_url('privado/grupo/update/'.$row->grupo_id) ?>"><i class="bx bx-edit-alt mr-1"></i> Editar</a>
                                    <a class="dropdown-item" href="<?=site_url('privado/grupo/delete/'.$row->grupo_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este grupo?')"><i class="bx bx-trash mr-1"></i> Eliminar</a>
-                                <?
-                                }
-                                ?>
+                                <?php }; ?>
+
                                </div>
                             </div>
                             </td>
                         </tr>
-                   <?
-                   }
-                   ?>
+                   <?php }; ?>
                 </tbody>
             </table>
         </div>
