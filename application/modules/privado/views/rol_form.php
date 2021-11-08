@@ -17,9 +17,9 @@
                     </div>
 
                     <div class="col-12">
-						<?/*
+						
 						<h4 class="content-header-title float-left no-border mb-0 text-capitalize"><i class="bx bx-user-plus"></i><?= $titulo ?></h4>
-						*/?>
+						
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
 													</div>
 												</div>
 												
-												<?/*<div class="col-12 mb-2">
+												<div class="col-12 mb-2">
 													<div class="form-group check-admin<?= form_error('activo') != '' ? ' has-error' : '' ?>">
 														<label for="activo">Activo <?php echo form_error('activo') ?></label>
 
@@ -68,7 +68,7 @@
 														
 														<? if (form_error('activo') != '') { ?> <span class="help-block"><?= form_error('activo') ?></span> <? } ?>
 													</div>
-												</div>*/?>
+												</div>
 
 												<div class="col-12 mb-2">
 													<div class="form-group check-admin<?= form_error('es_admin') != '' ? ' has-error' : '' ?>">
