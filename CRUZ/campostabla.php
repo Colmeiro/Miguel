@@ -10,10 +10,10 @@ $tabla = $_POST['table_name'];
 $campos = $hc->all_field($tabla);
 ?>
 
-<?
+<?php
 foreach($campos as $c){
     ?>
     <option value='<?=$c['column_name']?>'><?=$c['column_name']?></option>
     <?
-}
+};
 ?>

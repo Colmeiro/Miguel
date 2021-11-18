@@ -23,7 +23,7 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="lines">
             <li class="nav-item<?= $main == 'inicio' ? ' active' : '' ?>">
-                <a href="<?= site_url() ?>"><i class="bx bx-pie-chart-alt-2"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span>
+                <a href="<?= site_url() ?>"><i class="bx bx-pie-chart-alt-2"></i><span class="menu-title" data-i18n="Dashboard">Página principal</span>
                     <!-- <span class="badge badge-light-danger badge-pill badge-round float-right mr-2">2</span> -->
                 </a>
             </li>
@@ -61,12 +61,18 @@
             </li>
             
 
-            <li class="nav-item<? $seccion == 'admin-almacen' ? ' active' : '' ?>">
-                <a href="<?=site_url('privado/almacen')?>"><i class="bx bx-buildings"></i><span class="menu-title" data-i18n="Almacén">Almacén</span></a>
+            <li class="nav-item<? $seccion == 'admin-contactos' ? ' active' : '' ?>">
+                <a href="<?=site_url('privado/contacto')?>"><i class="bx bx-buildings"></i><span class="menu-title" data-i18n="Contactos">Gestión de Contactos</span></a>
             </li>
-        <?
-        }
-        ?>
+
+        <!-- si no es administrador, solo tiene acceso a los siguientes apartados de col-left -->
+        <? }else {?>
+
+            <li class="nav-item<? $seccion == 'admin-contactos' ? ' active' : '' ?>">
+                <a href="<?=site_url('privado/contacto')?>"><i class="bx bx-buildings"></i><span class="menu-title" data-i18n="Contactos">Gestión de Contactos</span></a>
+            </li>
+        <? } ?>
+
         </ul>
     </div>
 </div>

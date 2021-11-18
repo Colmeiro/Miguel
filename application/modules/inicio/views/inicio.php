@@ -6,7 +6,7 @@
             <div class="content-header-left col-12 mb-2 mt-1">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h5 class="content-header-title float-left pr-1 mb-0 no-dash">Dashboard</h5>
+                        <h5 class="content-header-title float-left pr-1 mb-0 no-dash">Panel de control</h5>
                     </div>
                 </div>
             </div>
@@ -79,9 +79,9 @@
                     <?php } ?>
 
                     <?php
-                    if (modules::run('security/check_gestion_roles')) {
+                    //if (modules::run('security/check_gestion_roles')) {
                     ?>
-                    <div class="col-md-4 col-sm-6 kb-search-content">
+                    <!-- <div class="col-md-4 col-sm-6 kb-search-content">
                         <div class="card kb-hover-1">
                             <div class="card-content">
                                 <div class="card-body text-center">
@@ -96,8 +96,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php } ?>
+                    </div> -->
+                    <?php //} ?>
 
                     <!-- Mi Perfil -->
                     <div class="col-md-4 col-sm-6 kb-search-content">
@@ -129,6 +129,24 @@
                                         </div>
                                         <h5>Contactos</h5>
                                         <p class=" text-muted">Consulta y edita los contactos guardados.</p>
+                                        <button class="btn btn-primary btn-sm d-none d-sm-inline-block">Acceder</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Productos -->
+                    <div class="col-md-4 col-sm-6 kb-search-content">
+                        <div class="card kb-hover-1">
+                            <div class="card-content">
+                                <div class="card-body text-center">
+                                    <a href="<?= site_url('privado/producto') ?>">
+                                        <div class="icon-dash mb-1">
+                                            <i class="bx bx-user"></i>
+                                        </div>
+                                        <h5>Productos</h5>
+                                        <p class=" text-muted">Gestiona los productos guardados.</p>
                                         <button class="btn btn-primary btn-sm d-none d-sm-inline-block">Acceder</button>
                                     </a>
                                 </div>

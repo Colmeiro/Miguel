@@ -67,6 +67,7 @@
 
     <!-- BEGIN: Content-->
         <!-- linea borrada (vere documento instalación) -->
+        <?php $this->load->view($main); ?>
     <!-- END: Content-->
 
     <!-- BEGIN: Demo Chat-->
@@ -88,6 +89,7 @@
 </body>
 <!-- END: Body-->
 <? } else { ?>
+    <?php echo $main; ?>
     <?php $this->load->view($main); ?>
 <? } ?>
 

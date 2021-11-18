@@ -382,29 +382,27 @@ $pk = $hc->primary_field($tabla);
                         <td></td>
                     </tr>
 
-
-
-                    <?
-                    $i = 1;
+                    <?php
+                    $i = 0;
                     foreach ($campos as $c) {
                         ?>
                         <tr>
                             <td>
                                 <label><?= $c['column_name'] ?> <em>(<?= $c['data_type'] ?>)</em></label>
-                                <input class="form-control labelcampos" type="text" name="label[<?= $c['column_name'] ?>]" value="<?= isset($datacfg->label->{$c['column_name']}) ? $datacfg->label->{$c['column_name']} : limpialabel(ucfirst($c['column_name'])) ?>" /></td>
+                                <input class="form-control labelcampos" type="text" name="label[<?php echo $c['column_name'] ?>]" value="<?php echo isset($datacfg->label->{$c['column_name']}) ? $datacfg->label->{$c['column_name']} : limpialabel(ucfirst($c['column_name'])) ?>" /></td>
                             <td>
                                 <select name="type_format[<?= $c['column_name'] ?>]" class="form-control select_formatos">
-                                    <?
+                                    <?php
                                     foreach ($formatos as $f) {
                                         ?>
                                         <option value="<?= $f['key'] ?>" <?=
                                                                             (isset($datacfg->type_format->{$c['column_name']}) && $datacfg->type_format->{$c['column_name']} == $f['key'])
                                                                                 || ((!isset($datacfg->type_format->{$c['column_name']}) || isset($datacfg->type_format->{$c['column_name']}) && $datacfg->type_format->{$c['column_name']} == '') && in_array($c['data_type'], $f['tipos'])) ? 'selected="selected"' : '' ?>><?= $f['valor'] ?></option>
-                                    <?
-                                }
+                                    <?php
+                                };
                                 ?>
                                 </select>
-                                <input type="hidden" name="relacion[<?= $c['column_name'] ?>]" class="relacioncheckbox" data-valor-campo="<?= $c['column_name'] ?>" value="<?= isset($datacfg->relacion->{$c['column_name']}) ? $c['column_name'] : '' ?>" <?= isset($datacfg->relacion->{$c['column_name']}) ? 'checked' : '' ?> />
+                                <input type="hidden" name="relacion[<?php echo $c['column_name'] ?>]" class="relacioncheckbox" data-valor-campo="<?php echo $c['column_name'] ?>" value="<?php echo isset($datacfg->relacion->{$c['column_name']}) ? $c['column_name'] : '' ?>" <?php echo isset($datacfg->relacion->{$c['column_name']}) ? 'checked' : '' ?> />
                                 <div class="form-inline" <?= empty($datacfg->relacion_tabla->{$c['column_name']}) ? 'style="display:none"' : '' ?>>
                                     <div class="div_select_relacion_tabla form-group">
                                         <label class="labelrelacion">Tabla : </label>
@@ -417,7 +415,7 @@ $pk = $hc->primary_field($tabla);
                                                 ?>
                                                 <option value="<?php echo $table['table_name'] ?>" <?= isset($datacfg->relacion_tabla->{$c['column_name']}) &&  $datacfg->relacion_tabla->{$c['column_name']} == $table['table_name'] ? 'selected="selected"' : ''; ?>><?php echo $table['table_name'] ?></option>
                                             <?php
-                                        }
+                                        };
                                         ?>
                                         </select>
                                     </div>
@@ -426,15 +424,15 @@ $pk = $hc->primary_field($tabla);
                                         <label class="labelrelacion">Relación :</label>
                                         <select name="relacion_tabla_campo[<?= $c['column_name'] ?>]" <?= isset($datacfg->relacion_tabla_campo->{$c['column_name']}) ? '' : 'disabled' ?> class="select_relacion_tabla_campo form-control" style="margin-top:5px">
                                             <!-- <option value="">Campo Relación</option> -->
-                                            <?
+                                            <?php
                                             if ($datacfg->relacion_tabla_campo->{$c['column_name']}) {
                                                 $camposrel = $hc->all_field($datacfg->relacion_tabla->{$c['column_name']});
                                                 foreach ($camposrel as $crel) {
                                                     ?>
                                                     <option value='<?= $crel['column_name'] ?>' <?= $datacfg->relacion_tabla_campo->{$c['column_name']} == $crel['column_name'] ? 'selected="selected"' : '' ?>><?= $crel['column_name'] ?></option>
-                                                <?
-                                            }
-                                        }
+                                                <?php
+                                            };
+                                        };
                                         ?>
                                         </select>
                                     </div>
@@ -443,15 +441,15 @@ $pk = $hc->primary_field($tabla);
                                         <label class="labelrelacion">Mostrar : </label>
                                         <select name="relacion_tabla_campo_mostrar[<?= $c['column_name'] ?>]" <?= isset($datacfg->relacion_tabla_campo_mostrar->{$c['column_name']}) ? '' : 'disabled' ?> class="select_relacion_tabla_campo_mostrar form-control" style="margin-top:5px">
                                             <!-- <option value="">Campo a mostrar</option> -->
-                                            <?
+                                            <?php
                                             if ($datacfg->relacion_tabla_campo_mostrar->{$c['column_name']}) {
                                                 $camposrel = $hc->all_field($datacfg->relacion_tabla->{$c['column_name']});
                                                 foreach ($camposrel as $crel) {
                                                     ?>
                                                     <option value='<?= $crel['column_name'] ?>' <?= $datacfg->relacion_tabla_campo_mostrar->{$c['column_name']} == $crel['column_name'] ? 'selected="selected"' : '' ?>><?= $crel['column_name'] ?></option>
-                                                <?
-                                            }
-                                        }
+                                                <?php
+                                            };
+                                        };
                                         ?>
                                         </select>
                                     </div>
@@ -460,15 +458,15 @@ $pk = $hc->primary_field($tabla);
                                         <label class="labelrelacion">Orden : </label>
                                         <select name="relacion_tabla_campo_orden[<?= $c['column_name'] ?>]" <?= isset($datacfg->relacion_tabla_campo_orden->{$c['column_name']}) ? '' : 'disabled' ?> class="select_relacion_tabla_campo_orden form-control" style="margin-top:5px">
                                             <!-- <option value="">Campo orden</option> -->
-                                            <?
+                                            <?php
                                             if ($datacfg->relacion_tabla_campo_orden->{$c['column_name']}) {
                                                 $camposrel = $hc->all_field($datacfg->relacion_tabla->{$c['column_name']});
                                                 foreach ($camposrel as $crel) {
                                                     ?>
                                                     <option value='<?= $crel['column_name'] ?>' <?= $datacfg->relacion_tabla_campo_orden->{$c['column_name']} == $crel['column_name'] ? 'selected="selected"' : '' ?>><?= $crel['column_name'] ?></option>
-                                                <?
+                                                <?php
                                             }
-                                        }
+                                        };
                                         ?>
                                         </select>
                                     </div>
@@ -484,7 +482,7 @@ $pk = $hc->primary_field($tabla);
 
                                         <div class="form-group">
                                             <label class="labelnormal">
-                                                <input type="checkbox" name="relacion_controlador_popup[<?= $c['column_name'] ?>]" value="1" <?= isset($datacfg->relacion_controlador_popup->{$c['column_name']}) ? 'checked' : '' ?>>
+                                                <input type="checkbox" name="relacion_controlador_popup[<? $c['column_name'] ?>]" value="1" <?= isset($datacfg->relacion_controlador_popup->{$c['column_name']}) ? 'checked' : '' ?>>
                                                 Abrir en PopUp
                                             </label>
                                         </div>
@@ -535,20 +533,11 @@ $pk = $hc->primary_field($tabla);
                             <td class="text-center"><input type="checkbox" name="campos_edit[]" class="selectcheckbox_edit" value="<?= $c['column_name'] ?>" <?php echo in_array($c['column_name'], isset($datacfg->campos_edit) ? $datacfg->campos_edit : array()) ? 'checked' : '' ?> /></td>
                             <td class="text-center"><input class="text-center input_position_edit" type="text" name="posicion_edit[<?= $c['column_name'] ?>]" value="<?= isset($datacfg->posicion_edit->{$c['column_name']}) ? $datacfg->posicion_edit->{$c['column_name']} : $i ?>" style="width:25px;" /></td>
                             <td class="text-center"><input type="checkbox" name="requerido[<?= $c['column_name'] ?>]" class="requeridocheckbox" value="<?= $c['column_name'] ?>" <?= isset($datacfg->requerido->{$c['column_name']}) ? 'checked' : '' ?> /></td>
-                            <? 
-
-
-
-
-
-
-
-
-                            ?>
+                           
                         </tr>
-                        <?
+                        <?php
                         $i++;
-                    }
+                    };
                     function limpialabel($text)
                     {
                         $search = array('_', '-');
