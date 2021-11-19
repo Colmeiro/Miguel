@@ -66,7 +66,7 @@
     <!-- END: Col Left-->
 
     <!-- BEGIN: Content-->
-        <!-- linea borrada (vere documento instalación) -->
+        <!-- linea borrada (ver documento instalación) -->
         <?php $this->load->view($main); ?>
     <!-- END: Content-->
 

@@ -18,7 +18,7 @@ class MProducto_priv extends CI_Model
     // get all
     function get_all()
     {
-        $this->db->select('productos.producto_nombre,productos.producto_ref,productos.producto_activo,productos.producto_id');
+        $this->db->select('productos.producto_nombre,productos.producto_ref,productos.producto_activo,productos.producto_id,productos.foto');
         $this->db->order_by($this->id);
         // $this->db->join("rol", "producto.rol_id = rol.rol_id", "left");
         return $this->db->get($this->table)->result();
@@ -34,7 +34,7 @@ class MProducto_priv extends CI_Model
     // get total rows
     function total_rows($q = NULL)
     {
-        $this->db->select('productos.producto_nombre,productos.producto_ref,productos.producto_activo,productos.producto_id');
+        $this->db->select('productos.producto_nombre,productos.producto_ref,productos.producto_activo,productos.producto_id,productos.foto');
 
         // $this->db->join("rol", "producto.rol_id = rol.rol_id", "left");
         if (!empty($q)) {
@@ -49,7 +49,7 @@ class MProducto_priv extends CI_Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $oc = '', $od = '')
     {
-        $this->db->select('productos.producto_nombre,productos.producto_ref,productos.producto_activo,productos.producto_id');
+        $this->db->select('productos.producto_nombre,productos.producto_ref,productos.producto_activo,productos.producto_id,productos.foto');
 
 
         

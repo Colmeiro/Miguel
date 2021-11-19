@@ -382,9 +382,10 @@ $pk = $hc->primary_field($tabla);
                         <td></td>
                     </tr>
 
-                    <?php
+                    <?php //var_dump($campos);
                     $i = 0;
                     foreach ($campos as $c) {
+                        if(isset($c['column_name'])){
                         ?>
                         <tr>
                             <td>
@@ -394,13 +395,13 @@ $pk = $hc->primary_field($tabla);
                                 <select name="type_format[<?= $c['column_name'] ?>]" class="form-control select_formatos">
                                     <?php
                                     foreach ($formatos as $f) {
-                                        ?>
+                                    ?>
                                         <option value="<?= $f['key'] ?>" <?=
                                                                             (isset($datacfg->type_format->{$c['column_name']}) && $datacfg->type_format->{$c['column_name']} == $f['key'])
                                                                                 || ((!isset($datacfg->type_format->{$c['column_name']}) || isset($datacfg->type_format->{$c['column_name']}) && $datacfg->type_format->{$c['column_name']} == '') && in_array($c['data_type'], $f['tipos'])) ? 'selected="selected"' : '' ?>><?= $f['valor'] ?></option>
                                     <?php
-                                };
-                                ?>
+                                    };
+                                    ?>
                                 </select>
                                 <input type="hidden" name="relacion[<?php echo $c['column_name'] ?>]" class="relacioncheckbox" data-valor-campo="<?php echo $c['column_name'] ?>" value="<?php echo isset($datacfg->relacion->{$c['column_name']}) ? $c['column_name'] : '' ?>" <?php echo isset($datacfg->relacion->{$c['column_name']}) ? 'checked' : '' ?> />
                                 <div class="form-inline" <?= empty($datacfg->relacion_tabla->{$c['column_name']}) ? 'style="display:none"' : '' ?>>
@@ -415,8 +416,8 @@ $pk = $hc->primary_field($tabla);
                                                 ?>
                                                 <option value="<?php echo $table['table_name'] ?>" <?= isset($datacfg->relacion_tabla->{$c['column_name']}) &&  $datacfg->relacion_tabla->{$c['column_name']} == $table['table_name'] ? 'selected="selected"' : ''; ?>><?php echo $table['table_name'] ?></option>
                                             <?php
-                                        };
-                                        ?>
+                                            };
+                                            ?>
                                         </select>
                                     </div>
                                     <br>
@@ -537,6 +538,7 @@ $pk = $hc->primary_field($tabla);
                         </tr>
                         <?php
                         $i++;
+                        };
                     };
                     function limpialabel($text)
                     {

@@ -36,9 +36,13 @@
 
 	                                <tr><td class="font-weight-bold"></td><td><?php echo daFormato($data_fields[''],'','0-0','') ?></td></tr>
 
-	                                <tr><td class="font-weight-bold"></td><td><?php echo daFormato($data_fields['producto_nombre'],'varchar','0-0','') ?></td></tr>
+	                                <tr><td class="font-weight-bold">Producto Nombre</td><td><?php echo daFormato($data_fields['producto_nombre'],'varchar','0-#333333','') ?></td></tr>
 
-	                                <tr><td class="font-weight-bold"></td><td><?php echo daFormato($data_fields['producto_ref'],'int','0-0','') ?></td></tr>
+	                                <tr><td class="font-weight-bold">Producto Ref</td><td><?php echo daFormato($data_fields['producto_ref'],'int','0-#333333','') ?></td></tr>
+
+	                                <tr><td class="font-weight-bold">Producto Activo</td><td><?php echo daFormato($data_fields['producto_activo'],'int','0-#333333','') ?></td></tr>
+
+	                                <tr><td class="font-weight-bold">Foto</td><td><?php echo daFormato($data_fields['foto'],'file_image','0-#333333','C:/xampp/htdocs/Miguel/img') ?></td></tr>
 								        </table>
 							        </div>
 							        <div class="row">

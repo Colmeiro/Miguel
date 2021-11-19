@@ -59,13 +59,10 @@
                         <thead class="bg-pep">
                                 <tr>
                                     <th class="<?= sentidobusquedacrd('producto_nombre', 'productos.', true) ?>">
-                                        <a href="<?php echo site_url('privado/producto/view?ob=' . sentidobusquedacrd('producto_nombre', 'productos.')); ?>">Producto</a>
+                                        <a href="<?php echo site_url('privado/producto/view?ob=' . sentidobusquedacrd('producto_nombre', 'productos.')); ?>">Nombre</a>
                                     </th>
                                     <th class="<?= sentidobusquedacrd('producto_ref', 'productos.', true) ?> d-none d-sm-table-cell">
-                                        <a href="<?php echo site_url('privado/producto/view?ob=' . sentidobusquedacrd('producto_ref', 'productos.')); ?>">Referencia</a>
-                                    </th>
-                                    <th class="<?= sentidobusquedacrd('foto', 'productos.', true) ?> d-none d-sm-table-cell">
-                                        <a href="<?php echo site_url('privado/producto/view?ob=' . sentidobusquedacrd('foto', 'productos.')); ?>">Foto</a>
+                                        <a href="<?php echo site_url('privado/producto/view?ob=' . sentidobusquedacrd('producto_ref', 'productos.')); ?>">Teléfono</a>
                                     </th>
                                     <th class="<?= sentidobusquedacrd('producto_activo', 'productos.', true) ?> text-center">
                                         <a href="<?php echo site_url('privado/producto/view?ob=' . sentidobusquedacrd('producto_activo', 'productos.')); ?>">Activo</a>
@@ -84,12 +81,7 @@
                                     <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->producto_nombre; ?></td>
                                         
                                     <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->producto_ref; ?></td>
-
-                                    <td>
-                                    <img src="https://img.vixdata.io/pd/jpg-large/es/sites/default/files/c/cohete_de_la_nasa.jpg" width="300" height="200">
-                                    <img src="../../../img/crew_dragon.jpg" width="300" height="200">
-                                    </td>
-
+                                            
                                     <td class=" text-center d-none d-sm-table-cell">
 
                                         <?php if ($row->producto_activo==1) { ?>

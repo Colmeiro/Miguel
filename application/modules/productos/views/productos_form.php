@@ -37,7 +37,7 @@
 						<div class="card-body card-body-xs">
 						<? if(isset($data_fields)) extract($data_fields); //Provisional ?>
 
-						    <form class="form form-vertical form-edit" action="<?php echo $action; ?>" method="post">
+						    <form class="form form-vertical form-edit" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 						        <div class="form-body">
 						            <div class="row">
 
