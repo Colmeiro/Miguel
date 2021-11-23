@@ -61,9 +61,6 @@ class Producto extends MX_Controller
             }
             $this->session->set_userdata(array('producto.od' => $ordendir, 'producto.oc' => $ordencampo));
         }
-
-        // echo "HEY";
-        // die();
         
         $oc = $this->session->userdata('producto.oc');
         $od = $this->session->userdata('producto.od');
@@ -109,12 +106,6 @@ class Producto extends MX_Controller
         $data['seccion'] = 'admin-users';
         $data['main'] = 'producto_list';
         $this->load->view('template', $data);
-
-        // echo "HEY";
-        // die();
-        // $this->load->view('template', $data);
-
-        // redirect('privado/producto/view');
     }
 
     public function read($id)
@@ -130,25 +121,14 @@ class Producto extends MX_Controller
                     'producto_ref' => $row->producto_ref,
                     'producto_activo' => $row->producto_activo,
                     'foto' => $row->foto,
-                    // 'fecha_creacion' => $row->fecha_creacion,
-                    // 'apellidos' => $row->apellidos,
-                    // 'dni' => $row->dni,
-                    // 'ciudad' => $row->ciudad,
-                    // 'email' => $row->email,
-                    // 'rol_id' => $row->rol_id,
-                    // 'orden' => $row->producto_id,
                 )
             );
             $this->db->order_by('producto_id', 'ASC');
             // $data['s_rol_id'] = $this->db->get('rol')->result();
             // $data['seccion'] = 'admin-users';
             $data['main'] = 'producto_read';
-
             $data['titulo'] = 'Gestión de productos';
             $data['subtitulo'] = 'producto';
-
-            // var_dump($data);
-            // die();
 
             $this->load->view('producto_read', $data);
         } else {
@@ -168,75 +148,51 @@ class Producto extends MX_Controller
                 'producto_ref' => set_value('producto_ref'),
                 'producto_activo' => set_value('producto_activo'),
                 'producto_id' => set_value('producto_id'),
-                // 'apellidos' => set_value('apellidos'),
-                // // 'dni' => set_value('dni'),
-                // // 'ciudad' => set_value('ciudad'),
-                // 'email' => set_value('email'),
-                // 'password' => set_value('password'),
-                // 'rol_id' => set_value('rol_id'),
-                // 'orden' => set_value('orden'),
+                'foto' => set_value('foto'),
             )
         );
-        // $this->db->order_by('producto_id', 'ASC');
-        // $data['s_rol_id'] = $this->db->get('rol')->result();
-        // $data['seccion'] = 'admin-users';
-        $data['main'] = 'producto_form';
 
+        $data['main'] = 'producto_form';
         $data['titulo'] = 'Gestión de productos';
         $data['subtitulo'] = 'Añadir producto';
         $this->load->view('producto_form', $data);
     }
 
 
-    // public function create_action()
-    // {
-    //     $this->_rules('create');
-
-    //     if ($this->form_validation->run() == FALSE) {
-    //         $this->create();
-    //     } else {
-    //         $data = array(
-    //             // 'fecha_creacion' => date('Y-m-d H:i:s'),
-    //             'producto_nombre' => $this->input->post('producto_nombre', TRUE),
-    //             'producto_ref' => $this->input->post('producto_ref', TRUE),
-    //             'producto_activo' => $this->input->post('producto_activo', TRUE),
-    //             // 'apellidos' => $this->input->post('apellidos', TRUE),
-    //             // // 'dni' => $this->input->post('dni', TRUE),
-    //             // // 'ciudad' => $this->input->post('ciudad', TRUE),
-    //             // 'email' => $this->input->post('email', TRUE),
-    //             // 'password' => md5($this->input->post('password', TRUE)),
-    //             // 'rol_id' => $this->input->post('rol_id', TRUE),
-    //             // 'producto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
-    //             // 'orden' => $this->input->post('orden', TRUE),
-    //         );
-
-    //         $this->MProducto_priv->insert($data);
-    //         $this->session->set_flashdata('message', 'producto creado correctamente');
-    //         redirect(site_url('privado/producto'));
-    //     }
-    // }
-
 
     public function create_action()
     {
         $data = array(
-        // 'fecha_creacion' => date('Y-m-d H:i:s'),
-        'producto_nombre' => $this->input->post('producto_nombre', TRUE),
-        'producto_ref' => $this->input->post('producto_ref', TRUE),
-        'producto_activo' => $this->input->post('producto_activo', TRUE),
-        // 'apellidos' => $this->input->post('apellidos', TRUE),
-        // // 'dni' => $this->input->post('dni', TRUE),
-        // // 'ciudad' => $this->input->post('ciudad', TRUE),
-        // 'email' => $this->input->post('email', TRUE),
-        // 'password' => md5($this->input->post('password', TRUE)),
-        // 'rol_id' => $this->input->post('rol_id', TRUE),
-        // 'producto_activo' => $this->input->post('activo', TRUE) ? $this->input->post('activo', TRUE) : 0,
-        // 'orden' => $this->input->post('orden', TRUE),
+            'producto_nombre' => $this->input->post('producto_nombre', TRUE),
+            'producto_ref' => $this->input->post('producto_ref', TRUE),
+            'foto' => $this->input->post('foto', TRUE),
+            'producto_activo' => $this->input->post('producto_activo', TRUE),
+        
         );
+
+        if(isset($_POST)){
+
+            //  echo "**********POST*********";
+            //  var_dump($_POST);
+            //  echo "***********FILES:*************";
+            //  var_dump($_FILES);
+            //  die();
+    
+             $name = $_FILES["foto"]["name"];
+             $tmp_name = $_FILES["foto"]["tmp_name"];
+             $error = $_FILES['foto']['error'];
+             $size = $_FILES['foto']['size'];
+             $max_size = 8000000 * 8000000 * 1;
+             $type = $_FILES['foto']['type'];
+    
+             $ruta = "C:/xampp/htdocs/Miguel/assets/img/" . $name;
+             copy($tmp_name, $ruta);
+        }
 
         $this->MProducto_priv->insert($data);
         $this->session->set_flashdata('message', 'producto creado correctamente');
         redirect(site_url('privado/producto'));
+    
     }
     
 

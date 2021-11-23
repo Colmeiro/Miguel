@@ -38,6 +38,9 @@
     <!--<link rel="stylesheet" type="text/css" href="<?=base_url();?>app-assets/vendors/css/forms/select/select2.min.css">--> <!-- nuevo gtc -->
     <!-- END: Page CSS-->
     </div>
+
+
+
     <div class="content-wrapper">
         <!-- TITLE + BREADCRUMB -->
         <div class="content-header row">
@@ -63,7 +66,6 @@
         <div class="content-body">
 
         <!-- botón volver -->
-        
             <a href="<?php echo site_url('privado/producto') ?>" class="btn btn-light-secondary ml-0"><i class="bx bx-chevrons-left"></i>Volver</a> 
         
 
@@ -72,7 +74,7 @@
                     <div class="col-md-6 col-12">
                         <div class="card">
                             <?php if (isset($subtitulo) && $subtitulo=='Añadir producto') {
-                                //$bg_card="bg-light-blue";
+                                $bg_card="bg-light-blue";
                                 $bg_card="bg-light-blue";
                                 $dots="";
                             } else{
@@ -89,25 +91,37 @@
                                     <?php if (isset($data_fields)) extract($data_fields); //Provisional 
                                     ?>
 
-                                    <form class="form form-vertical form-edit" action="<?php echo $action; ?>" method="post">
+                                    <form id="formulario" class="form form-vertical form-edit" action="<?php echo $action; ?>" enctype="multipart/form-data "method="post">
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <div class="form-group<?= form_error('producto_nombre') != '' ? ' has-error' : '' ?>">
+                                                    
+
+                                                <div class="form-group<?= form_error('producto_nombre') != '' ? ' has-error' : '' ?>">
                                                         <label for="producto_nombre">Nombre <?php echo form_error('producto_nombre') ?></label>
                                                         <?= daFormatoEdit($data_fields['producto_nombre'], 'producto_nombre', 'Nombre', 'varchar', 'varchar', 1); ?>
                                                         <? if (form_error('producto_nombre') != '') { ?> <span class="help-block"><?= form_error('producto_nombre') ?></span> <? } ?>
                                                     </div>
                                                 </div>
+                                                
+
                                                 <div class="col-12">
                                                     <div class="form-group<?= form_error('ref') != '' ? ' has-error' : '' ?>">
-                                                        <label for="producto_ref">Teléfono <?php echo form_error('producto_ref') ?></label>
+                                                        <label for="producto_ref">Referencia <?php echo form_error('producto_ref') ?></label>
                                                         <?= daFormatoEdit($data_fields['producto_ref'], 'producto_ref', 'Teléfono', 'varchar', 'varchar', 1); ?>
                                                         <? if (form_error('producto_ref') != '') { ?> <span class="help-block"><?= form_error('producto_ref') ?></span> <? } ?>
                                                     </div>
                                                 </div>
 
+
+                                                <div class="col-12">
+                                                    <div class="form-group<?= form_error('ref') != '' ? ' has-error' : '' ?>">
+                                                        <label for="foto">Subir imagen<?php echo form_error('foto') ?></label> <br>
+                                                        <input type="file" name="foto" id="foto">
+                                                    </div>
                                                 </div>
+
+                                                
                                                 <div class="col-12">
                                                     <div class="form-group<?php form_error('producto_activo') != '' ? ' has-error' : '' ?>">
                                                         <label for="producto_activo">Activo <?php echo form_error('producto_activo') ?></label>
@@ -121,10 +135,11 @@
 
                                                 <input type="hidden" name="producto_id" value="<?php echo $data_fields['producto_id']; ?>" />
 
+
                                                 <div class="col-6 d-flex" style="text-align:left;">
-
-                                                <button type="submit" action="<?php echo site_url('privado/producto/create_action'); ?> method="post" class="btn btn-primary"><?php echo $button ?></button>
-
+                                                <input type="submit" name="submit"  value="Guardar Producto" action="<?php echo site_url('privado/producto/create_action'); ?> method="post" class="btn btn-primary"><?php echo $button ?></button>
+                                                
+                                                <!-- <input type="submit" name="submit" value="Subir"> -->
                                                     <!-- <?php if (isset($subtitulo) && $subtitulo==='Añadir producto') { ?>
                                                             <button type="submit" action="<?php echo site_url('privado/producto/create'); ?> method="post" class="btn btn-primary"><?php echo $button ?></button>
                                                             
@@ -135,12 +150,9 @@
                                                                 
                                                     <?php }; ?> -->
                                                 </div>
-                                                
-                                                    
                                             </div>
-                                            </form>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

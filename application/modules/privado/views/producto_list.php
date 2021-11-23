@@ -86,8 +86,10 @@
                                     <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->producto_ref; ?></td>
 
                                     <td>
-                                    <img src="https://img.vixdata.io/pd/jpg-large/es/sites/default/files/c/cohete_de_la_nasa.jpg" width="300" height="200">
-                                    <img src="../../../img/crew_dragon.jpg" width="300" height="200">
+                                    <!-- <img src="https://img.vixdata.io/pd/jpg-large/es/sites/default/files/c/cohete_de_la_nasa.jpg" width="300" height="200">
+                                    <img class="logo logo-login" src="<?= base_url() . $this->config->item('site_logo') ?>" width="300" height="200" /> -->
+                                    <!-- <img src="https://127.0.0.1/Miguel/assets/img/soporte_vital.jpg" width="300" height="300" /> -->
+                                    <img src=<?= "https://127.0.0.1/Miguel/assets/img/" . $row->foto; ?> width="300" height="300" />
                                     </td>
 
                                     <td class=" text-center d-none d-sm-table-cell">

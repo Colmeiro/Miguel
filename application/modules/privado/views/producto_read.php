@@ -98,6 +98,12 @@
                                                 <td><?php echo daFormato($data_fields['producto_ref'], 'varchar', '0-#333333', '') ?></td>
                                             </tr>
 
+                                            <tr>
+                                                <td class="font-weight-bold">Foto</td>
+                                                
+                                                <td><img src=<?= "https://127.0.0.1/Miguel/assets/img/" . $data_fields['foto']; ?> width="300" height="300" /></td>
+                                            </tr>
+
                                             
                                                 <img src=".../" alt="">
                                             
