@@ -36,11 +36,21 @@
 
 	                                <tr><td class="font-weight-bold"></td><td><?php echo daFormato($data_fields[''],'','0-0','') ?></td></tr>
 
-	                                <tr><td class="font-weight-bold"></td><td><?php echo daFormato($data_fields['contacto_nombre'],'varchar','0-0','') ?></td></tr>
+	                                <tr><td class="font-weight-bold">Contacto Nombre</td><td><?php echo daFormato($data_fields['contacto_nombre'],'varchar','0-#333333','') ?></td></tr>
 
-	                                <tr><td class="font-weight-bold"></td><td><?php echo daFormato($data_fields['contacto_telefono'],'varchar','0-0','') ?></td></tr>
+	                                <tr><td class="font-weight-bold">Contacto Telefono</td><td><?php echo daFormato($data_fields['contacto_telefono'],'varchar','0-#333333','') ?></td></tr>
 
-	                                <tr><td class="font-weight-bold"></td><td><?php echo daFormato($data_fields['contacto_activo'],'tinyint','0-0','') ?></td></tr>
+	                                <tr><td class="font-weight-bold">Contacto Activo</td><td><?php echo daFormato($data_fields['contacto_activo'],'checkbox','0-#333333','') ?></td></tr>
+
+	                                <tr><td class="font-weight-bold">Orden</td><td><?php echo daFormato($data_fields['orden'],'int','0-#333333','') ?></td></tr>
+
+	                                <tr><td class="font-weight-bold">Foto</td><td><?php echo daFormato($data_fields['foto'],'varchar','0-#333333','') ?></td></tr>
+
+	                                <tr><td class="font-weight-bold">Provincia</td><td><?php echo daFormato($data_fields['provincia'],'varchar','0-#333333','') ?></td></tr>
+
+	                                <tr><td class="font-weight-bold">Sexo</td><td><?php echo daFormato($data_fields['sexo'],'int','0-#333333','') ?></td></tr>
+
+	                                <tr><td class="font-weight-bold">FechaNacimiento</td><td><?php echo daFormato($data_fields['fechaNacimiento'],'date','0-#333333','') ?></td></tr>
 								        </table>
 							        </div>
 							        <div class="row">

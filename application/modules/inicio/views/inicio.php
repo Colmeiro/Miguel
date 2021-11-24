@@ -123,7 +123,7 @@
                         <div class="card kb-hover-1">
                             <div class="card-content">
                                 <div class="card-body text-center">
-                                    <a href="<?= site_url('privado/contacto') ?>">
+                                    <a href="<?= site_url('contactos/contactoscontroller') ?>">
                                         <div class="icon-dash mb-1">
                                             <i class="bx bx-user"></i>
                                         </div>
@@ -153,6 +153,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- <div class="col-md-4 col-sm-6 kb-search-content">
+                        <div class="card kb-hover-1">
+                            <div class="card-content">
+                                <div class="card-body text-center">
+                                    <a href="<?= site_url('privado/patreons') ?>">
+                                        <div class="icon-dash mb-1">
+                                            <i class="bx bx-user"></i>
+                                        </div>
+                                        <h5>Patreons</h5>
+                                        <p class=" text-muted">Gestiona los Patreons</p>
+                                        <button class="btn btn-primary btn-sm d-none d-sm-inline-block">Acceder</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
 
             </section>
             <!-- Dashboard Ecommerce ends -->

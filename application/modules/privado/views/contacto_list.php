@@ -18,6 +18,7 @@
                     <div class="col-12">
                        <h4 class="content-header-title float-left no-border mb-0 text-capitalize"><i class="bx bx-group"></i><?= $titulo ?></h4>
                        <br></br>
+                       <!-- botón añadir contacto -->
                        <?php echo anchor(site_url('privado/contacto/create'), 'Añadir contacto<i class="bx bx-plus"></i>', 'class="btn btn-primary add-btn"'); ?>
                     </div>
                 </div>

@@ -49,7 +49,37 @@
             <table id="table-extended-dt" class="dt-contactoscontroller table mb-0">
                 <thead class="bg-pep">
                     <tr>
-                        <th>Acciones</th>
+                        
+                    <th class="<?= sentidobusquedacrd('contacto_nombre', 'contactos.', true) ?>">
+                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('contacto_nombre', 'contactos.')); ?>">Nombre</a>
+                    </th>
+                    <th class="<?= sentidobusquedacrd('contacto_telefono', 'contactos.', true) ?> d-none d-sm-table-cell">
+                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('contacto_telefono', 'contactos.')); ?>">Teléfono</a>
+                    </th>
+                    <th class="<?= sentidobusquedacrd('foto', 'contactos.', true) ?> d-none d-sm-table-cell">
+                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('foto', 'contactos.')); ?>">Foto</a>
+                    </th>
+                    <th class="<?= sentidobusquedacrd('provincia', 'contactos.', true) ?> d-none d-sm-table-cell">
+                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('provincia', 'contactos.')); ?>">Provincia</a>
+                    </th>
+                    <th class="<?= sentidobusquedacrd('sexo', 'contactos.', true) ?> d-none d-sm-table-cell">
+                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('sexo', 'contactos.')); ?>">Sexo</a>
+                    </th>
+                    <th class="<?= sentidobusquedacrd('fechaNacimiento', 'contactos.', true) ?> d-none d-sm-table-cell">
+                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('fechaNacimiento', 'contactos.')); ?>">Fecha Nacimiento</a>
+                    </th>
+                    <th class="<?= sentidobusquedacrd('contacto_activo', 'contactos.', true) ?> text-center">
+                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('contacto_activo', 'contactos.')); ?>">Activo</a>
+                    </th>
+                    <!-- <?/*<th class="<?= sentidobusquedacrd('orden', 'contacto.', true) ?> d-none d-sm-table-cell text-center">
+                        <a href="<?php echo site_url('privado/contacto/view?ob=' . sentidobusquedacrd('orden', 'contacto.')); ?>">Orden</a>
+                    </th>*/?> -->
+
+                    <th class="text-center"><span class="d-none d-sm-block">Acciones</span></th>
+
+		<!-- <th class="sorting ">
+        <a>FechaNacimiento</a>
+        </th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -57,11 +87,38 @@
                     foreach ($contactoscontroller_data as $row) {
                     ?>
                         <tr>
+
+                        <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->contacto_nombre; ?></td>
+                                        
+                        <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->contacto_telefono; ?></td>
+
+                        <td class=" text-left d-none d-sm-table-cell"> FOTO<?php //echo $row->foto; ?></td>
+
+                        <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->provincia; ?></td>
+
+                        <td class=" text-left d-none d-sm-table-cell"> <?php if(($row->sexo)==1){ 
+                                                                                echo "Mujer";
+                                                                            }else{
+                                                                                echo "Hombre";
+                                                                            } ?>
+                        </td>
+
+                        <td class=" text-left" data-order="<?= $row->fechaNacimiento ?>" data-search="<?= $row->fechaNacimiento ?>"><?php echo daFormato($row->fechaNacimiento,'date','0-#333333','','','') ?></td>
+                                
+                        <td class=" text-center d-none d-sm-table-cell">
+
+                            <?php if ($row->contacto_activo==1) { ?>
+                                    <span class="badge badge-light-success badge-pill">ACTIVO</span>
+                                <?php }else{ ?>
+                                    <span class="badge badge-light-danger badge-pill">NO ACTIVO</span>
+                                <?php }; ?>
+                        </td>
+
                             <!-- Acciones Desktop -->
                             <td class="text-center btn-acciones d-none d-md-table-cell">
                                 <a href="<?=site_url('contactos/contactoscontroller/read/'.$row->contacto_id) ?>" class="btn btn-xs btn-icon-only btn-info btn-table"><i class="bx bx-search"></i></a>
                                 <a href="<?=site_url('contactos/contactoscontroller/update/'.$row->contacto_id) ?>" class="btn btn-icon-only btn-xs btn-success btn-table"><i class="bx bx-edit"></i></a>
-                                <a href="<?=site_url('contactos/contactoscontroller/delete/'.$row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>
+                                <a href="<?=site_url('contactos/contactoscontroller/delete/'.$row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contactos?')" class="btn btn-xs btn-icon-only btn-danger btn-table"><i class="bx bx-trash"></i></a>
                             </td>
                             <!-- Acciones Mobile -->
                             <td class="text-center btn-acciones d-table-cell d-md-none">
@@ -70,10 +127,11 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                    <a class="dropdown-item" href="<?=site_url('contactos/contactoscontroller/read/'.$row->contacto_id) ?>"><i class="bx bx-show-alt mr-1"></i> Ver</a>
                                    <a class="dropdown-item" href="<?=site_url('contactos/contactoscontroller/update/'.$row->contacto_id) ?>"><i class="bx bx-edit-alt mr-1"></i> Editar</a>
-                                   <a class="dropdown-item" href="<?=site_url('contactos/contactoscontroller/delete/'.$row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contacto?')"><i class="bx bx-trash mr-1"></i> Eliminar</a>
+                                   <a class="dropdown-item" href="<?=site_url('contactos/contactoscontroller/delete/'.$row->contacto_id) ?>" onclick="javascript: return confirm('Seguro que deseas eliminar este contactos?')"><i class="bx bx-trash mr-1"></i> Eliminar</a>
                                </div>
                             </div>
                             </td>
+                            
                         </tr>
                    <?
                    }
