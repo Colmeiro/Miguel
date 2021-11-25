@@ -26,7 +26,7 @@
 					<div class="col-md-6 col-12">
 						<div class="card">
 						    <div class="card-header bg-light-blue">
-						        <h4 class="card-title color-white"><?= isset($subtitulo) ? $subtitulo : '' ?>: <?php echo daFormato($data_fields['nombre'], 'varchar', '0-#ffffff', '') ?></h4>
+						        <h4 class="card-title color-white"><?= isset($subtitulo) ? $subtitulo : '' ?>: <?php echo daFormato($data_fields['contacto_nombre'], 'varchar', '0-#ffffff', '') ?></h4>
                             </div>
 						    <div class="card-content">
 						        <div class="card-body pr-0 pl-0">

@@ -11,6 +11,7 @@ class ContactosController extends MX_Controller
         $this->load->model('Contactos_model');
         $this->load->library('form_validation');
         $this->load->helper('formatos');
+        $this->load->model('Modelo_provincias');
         
     }
 
@@ -72,15 +73,8 @@ class ContactosController extends MX_Controller
             $this->session->set_userdata(array('contactoscontroller.nr' => 10));
         }
         
-        
-        
-        
-            $config['base_url'] = current_url().'/';
-            $config['first_url'] = current_url().'/';
-        
-            
-
-        
+        $config['base_url'] = current_url().'/';
+        $config['first_url'] = current_url().'/';
         $config['uri_segment'] = 4;
         $config['use_page_numbers'] = TRUE;
         $config['total_rows'] = $this->Contactos_model->total_rows($q);
@@ -106,29 +100,31 @@ class ContactosController extends MX_Controller
     }
 
 
-    
+
     public function read($id) 
     {
         $row = $this->Contactos_model->get_by_id($id);
         if ($row) {
             $data = array(
                 'data_fields' => array(
-		'contacto_id' => $row->contacto_id,
-		'contacto_nombre' => $row->contacto_nombre,
-		'contacto_telefono' => $row->contacto_telefono,
-		'contacto_activo' => $row->contacto_activo,
-		'orden' => $row->orden,
-		'foto' => $row->foto,
-		'provincia' => $row->provincia,
-		'sexo' => $row->sexo,
-		'fechaNacimiento' => $row->fechaNacimiento,
-	)
-	    );
-            $data['main'] = 'contactos_read';
+                'contacto_id' => $row->contacto_id,
+                'contacto_nombre' => $row->contacto_nombre,
+                'contacto_telefono' => $row->contacto_telefono,
+                'contacto_activo' => $row->contacto_activo,
+                'orden' => $row->orden,
+                'foto' => $row->foto,
+                'provincia' => $row->provincia,
+                'sexo' => $row->sexo,
+                'fechaNacimiento' => $row->fechaNacimiento,
+	            )
+	        );
             
-$data['titulo']='contactos';
-$data['subtitulo']='Ver Contactos';
+            $data['main'] = 'contactos_read';
+            $data['titulo']='contactos';
+            $data['subtitulo']='Ver Contactos';
+
             $this->load->view('template', $data);
+
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('contactos/contactoscontroller'));
@@ -138,75 +134,123 @@ $data['subtitulo']='Ver Contactos';
 
     public function create() 
         {
+            $provincias = array();
+            $provincias = $this->Modelo_provincias->get_all();            
+
             $data = array(
                 'button' => 'Añadir',
                 'action' => site_url('contactos/contactoscontroller/create_action'),
+                'provincias' => $provincias,
+                
                 'data_fields' => array(
-		'contacto_id' => set_value('contacto_id'),
+		            'contacto_id' => set_value('contacto_id'),
+                    'contacto_nombre' => set_value('contacto_nombre'),
+                    'contacto_telefono' => set_value('contacto_telefono'),
+                    'contacto_activo' => set_value('contacto_activo'),
+                    'foto' => set_value('foto'),
+                    'provincia' => set_value('provincia'),
+                    'sexo' => set_value('sexo'),
+                    'fechaNacimiento' => set_value('fechaNacimiento'),
 	)
 	);
-            $data['main'] = 'contactos_form';
-            
-    $data['titulo']='contactos';
-    $data['subtitulo']='Añadir Contactos';
-    $this->load->view('template', $data);
+            $data['main'] = 'contactos_form';            
+            $data['titulo']='contactos';
+            $data['subtitulo']='Añadir Contacto';
+            $this->load->view('template', $data);
         }
+
+
+
+    public function create_action()
+    {
+        $data = array(
+            'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
+            'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
+            'contacto_activo' => $this->input->post('contacto_activo', TRUE),
+            'foto' => $this->input->post('foto', TRUE),
+            'provincia' => $this->input->post('provincia', TRUE),
+            'sexo' => $this->input->post('sexo', TRUE),
+            'fechaNacimiento' => $this->input->post('fechaNacimiento', TRUE),
+        );
+
+        $this->Contactos_model->insert($data);
+        $this->session->set_flashdata('message', 'contacto creado correctamente');
+        redirect(site_url('contactos/contactoscontroller'));
+    }
     
 
-    public function create_action() 
-    {
-        $this->_rules('create');
+    // public function create_action() 
+    // {
+    //     $this->_rules('create');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->create();
-        } else {            $data = array(
-	    );
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $this->create();
+    //     } else {            $data = array(
+	//     );
 
-            $this->Contactos_model->insert($data);
-            $this->session->set_flashdata('message', 'Contactos creado correctamente');
-            redirect(site_url('contactos/contactoscontroller'));
-        }
-    }    
+    //         $this->Contactos_model->insert($data);
+    //         $this->session->set_flashdata('message', 'Contacto creado correctamente');
+    //         redirect(site_url('contactos/contactoscontroller'));
+    //     }
+    // }    
     
 
 public function update($id) 
-        {
-            $row = $this->Contactos_model->get_by_id($id);
+{
+    $row = $this->Contactos_model->get_by_id($id);
     if ($row) {
-                $data = array(
-                    'button' => 'Modificar',
-                    'action' => site_url('contactos/contactoscontroller/update_action'),
-                    'data_fields' => array(
-		'contacto_id' => set_value('contacto_id', $row->contacto_id),
-	)
-	    );
+
+            $data = array(
+                'button' => 'Modificar',
+                'action' => site_url('contactos/contactoscontroller/update_action'),
+                
+                'data_fields' => array(
+                    'contacto_id' => set_value('contacto_id', $row->contacto_id),
+                    'contacto_nombre' => set_value('contacto_nombre', $row->contacto_nombre),
+                    'contacto_telefono' => set_value('contacto_telefono', $row->contacto_telefono),
+                    'contacto_activo' => set_value('contacto_activo', $row->contacto_activo),
+                    'foto' => set_value('foto', $row->foto),
+                    'provincia' => set_value('provincia', $row->provincia),
+                    'sexo' => set_value('sexo', $row->sexo),
+                    'fechaNacimiento' => set_value('fechaNacimiento', $row->fechaNacimiento),
+                    )
+	        );
     
             $data['main'] = 'contactos_form';
-            
-                $data['titulo']='contactos';
-                $data['subtitulo']='Modificar Contactos';
-                $this->load->view('template', $data);
-            } else {
-                $this->session->set_flashdata('message', 'Record Not Found');
-                redirect(site_url('contactos/contactoscontroller'));
-            }
-        }
-    
-    public function update_action() 
-    {
-        $this->_rules('update');
+            $data['titulo']='Gestión de contactos';
+            $data['subtitulo']='Modificar Contacto';
+            $this->load->view('template', $data);
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('contacto_id', TRUE));
-        } else {            $data = array(
-	    );
-	
-            $this->Contactos_model->update($this->input->post('contacto_id', TRUE), $data);
-            $this->session->set_flashdata('message', 'Contactos modificado correctamente');
-            redirect(site_url('contactos/contactoscontroller'));
-
-        }
+    } else {
+        $this->session->set_flashdata('message', 'Record Not Found');
+        redirect(site_url('contactos/contactoscontroller'));
     }
+}
+
+    
+public function update_action() 
+{
+    $this->_rules('update');
+
+    if ($this->form_validation->run() == FALSE) {
+        $this->update($this->input->post('contacto_id', TRUE));
+    } else {            
+            $data = array(
+            'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
+            'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
+            'contacto_activo' => $this->input->post('contacto_activo', TRUE),
+            'provincia' => $this->input->post('provincia', TRUE),
+            'foto' => $this->input->post('foto', TRUE),
+            'sexo' => $this->input->post('sexo', TRUE),
+            'fechaNacimiento' => $this->input->post('fechaNacimiento', TRUE),
+            );
+
+        $this->Contactos_model->update($this->input->post('contacto_id', TRUE), $data);
+        $this->session->set_flashdata('message', 'Contacto modificado correctamente');
+        redirect(site_url('contactos/contactoscontroller'));
+
+    }
+}
     
 	    public function delete($id) 
     {

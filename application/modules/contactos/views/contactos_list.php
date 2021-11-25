@@ -1,6 +1,7 @@
 <div class="app-content content">
     <div class="content-overlay"></div>
         <div class="content-wrapper">
+           
             <!-- TITLE + BREADCRUMB -->
             <div class="content-header row">
                 <div class="content-header-left col-12 mb-1 mb-sm-2 mt-1">                    <div class="row breadcrumbs-top">
@@ -19,18 +20,20 @@
                 </div>
             </div>
 <div class="content-body">
+
 <!-- table Transactions start -->
 <section id="table-transactions">
     <div class="card">
         <div class="card-header">
-            <!-- head -->
+            
+        <!-- head -->
             <!-- Single Date Picker and button -->
             <div class="heading-elements search-pep">
                 <ul class="list-inline mb-0">
                     <li class="search-li">
                         <?/* <form action="<?php echo site_url('contactos/contactoscontroller/view'); ?>" method="post"> */?>
                             <fieldset class="has-icon-left position-relative">
-                                <input type="text" id="buscartabla" class="form-control single-daterange" placeholder="<?php echo $total_rows ?> Resultados" name="q" value="<?= $q ?>">
+                                <input type="text" id="buscartabla" class="form-control single-daterange" placeholder="<?php echo $total_rows ?> Resultados" name="q" value="<?= $q ?>"> <br>
                                 <div class="form-control-position">
                                    <i class="bx bx-search font-medium-1"></i>
                                 </div>
@@ -44,6 +47,7 @@
                 </ul>
             </div>
         </div>
+
         <!-- datatable start -->
         <div class="table-responsive">
             <table id="table-extended-dt" class="dt-contactoscontroller table mb-0">
@@ -92,7 +96,7 @@
                                         
                         <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->contacto_telefono; ?></td>
 
-                        <td class=" text-left d-none d-sm-table-cell"> FOTO<?php //echo $row->foto; ?></td>
+                        <td class=" text-left d-none d-sm-table-cell"> <img src=<?= "https://127.0.0.1/Miguel/assets/img/" . $row->foto; ?> width="200" height="130" alt="<?=$row->foto;?>"/></td>
 
                         <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->provincia; ?></td>
 
