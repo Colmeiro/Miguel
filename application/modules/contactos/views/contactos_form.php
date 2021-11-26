@@ -76,12 +76,21 @@
                                                         <label for="provincia">Provincia <?php echo form_error('provincia') ?></label>
                                                         <div class="controls">
                                                             
-                                                            <select name="provincia" id="provincia"
+                                                            <select name="provincia" id="provincia" 
                                                                 class="form-control simple-select " data-minimum-results-for-search="Infinity">
-                                                                <option value="" ><?= $data_fields['provincia'];?></option>
+                                                                
                                                                 <?php foreach ($provincias as $provincia) { ?>
-                                                                    <option value="<?php echo $provincia->nombre; ?>" ><?= $provincia->nombre; ?></option>
-                                                                <? }?>
+
+                                                                    <option value="<?php echo $provincia->nombre; ?>" 
+                                                                        <? if ($provincia->nombre == $data_fields['provincia']){ ?>
+                                                                            checked> <?=$data_fields['provincia'];?> 
+                                                                        <? }else{ ?>
+                                                                            > <?= $provincia->nombre; ?>
+                                                                        <? }; ?>
+                                                                    </option>
+                                                                            
+                                                                <? }; ?>
+                                                                    
                                                             </select>
 
                                                         </div>
@@ -103,7 +112,12 @@
                                                         <?php foreach ($sexos as $key => $val){   ?>
                                                             <div>
                                                                 <label for="sexo"> <?= $key==0 ? "Hombre" : "Mujer" ?> </label>
-                                                                <input type="radio" id="sexo" name="sexo" value="<?php echo $key; ?>" >
+                                                                <input type="radio" id="sexo" name="sexo" value="<?php echo $key; ?>" 
+                                                                <?php if ($key==$data_fields['sexo']){ ?>
+                                                                    checked>
+                                                                <?php }else { ?>
+                                                                    >
+                                                                <?php } ?>
                                                             </div>
                                                         <? } ?>
 
@@ -155,6 +169,7 @@
         </div>
     </div>
 </section>
+</div>
 </div>
 </div>
 </div>

@@ -197,12 +197,17 @@ class ContactosController extends MX_Controller
 
 public function update($id) 
 {
+
+    $provincias = array();
+    $provincias = $this->Modelo_provincias->get_all();    
+    
     $row = $this->Contactos_model->get_by_id($id);
     if ($row) {
 
             $data = array(
                 'button' => 'Modificar',
                 'action' => site_url('contactos/contactoscontroller/update_action'),
+                'provincias' => $provincias,
                 
                 'data_fields' => array(
                     'contacto_id' => set_value('contacto_id', $row->contacto_id),
