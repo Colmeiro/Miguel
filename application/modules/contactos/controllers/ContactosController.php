@@ -156,13 +156,16 @@ class ContactosController extends MX_Controller
             $data['main'] = 'contactos_form';            
             $data['titulo']='contactos';
             $data['subtitulo']='Añadir Contacto';
+            
             $this->load->view('template', $data);
+            
         }
 
 
 
     public function create_action()
     {
+        
         $data = array(
             'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
             'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
@@ -173,26 +176,55 @@ class ContactosController extends MX_Controller
             'fechaNacimiento' => $this->input->post('fechaNacimiento', TRUE),
         );
 
+        $foto = 'foto';
+        $config['upload_path'] = "C:/xampp/htdocs/Miguel/assets/img/contactos_fotos";
+        //$config['file_name'] = "img";
+        $config['allowed_types'] = "*";
+        $config['max_size'] = "5000";
+        $config['max_width'] = "2000";
+        $config['max_height'] = "2000";
+        // var_dump($_FILES);
+        // die();
+        
+        $this->load->library('upload', $config);
+
+        if(!$this->upload->do_upload($foto)) {
+            $data2['uploadError'] = $this->upload->display_errors();
+            echo $this->upload->display_errors();
+            
+            var_dump($_FILES);
+            return;
+        }
+
+        $data2['uploadSuccess'] = $this->upload->data();
+        
+
         $this->Contactos_model->insert($data);
         $this->session->set_flashdata('message', 'contacto creado correctamente');
+       
         redirect(site_url('contactos/contactoscontroller'));
     }
-    
 
-    // public function create_action() 
-    // {
-    //     $this->_rules('create');
+    // public function guardarFoto(){
 
-    //     if ($this->form_validation->run() == FALSE) {
-    //         $this->create();
-    //     } else {            $data = array(
-	//     );
+    //     $foto = 'foto';
+    //     $config['upload_path'] = "assets/img";
+    //     //$config['file_name'] = "img";
+    //     $config['allowed_types'] = "jpg|png";
+    //     $config['max_size'] = "5000";
+    //     $config['max_width'] = "2000";
+    //     $config['max_height'] = "2000";
+        
+    //     $this->load->library('upload', $config);
 
-    //         $this->Contactos_model->insert($data);
-    //         $this->session->set_flashdata('message', 'Contacto creado correctamente');
-    //         redirect(site_url('contactos/contactoscontroller'));
+    //     if(!$this->upload->do_upload($foto)) {
+    //         $data['uploadError'] = $this->upload->display_errors();
+    //         echo $this->upload->display_errors();
+    //         return;
     //     }
-    // }    
+
+    //     $data['uploadSuccess'] = $this->upload->data();
+    // }
     
 
 public function update($id) 
@@ -277,6 +309,8 @@ public function update_action()
 	$this->form_validation->set_rules('contacto_id', 'contacto_id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
+
+    
 
     // public function excel()
     // {

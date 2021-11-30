@@ -37,7 +37,7 @@
 						<div class="card-body card-body-xs">
 						<? if(isset($data_fields)) extract($data_fields); //Provisional ?>
 
-						    <form class="form form-vertical form-edit" action="<?php echo $action; ?>" enctype="multipart/form-data "method="post">
+						    <form class="form form-vertical form-edit" action="<?php echo $action; ?>" enctype="multipart/form-data" method="post">
 						        <div class="form-body">
 						            <div class="row">
 
@@ -64,7 +64,7 @@
                                                 <div class="col-12">
                                                     <div class="form-group<?= form_error('foto') != '' ? ' has-error' : '' ?>">
                                                         <label for="foto">Foto <?php echo form_error('foto') ?></label> <br>
-                                                        <input type="file" >
+                                                        <input type="file" name="foto" class="form-control"/>
                                                        
                                                         <? if (form_error('foto') != '') { ?> <span class="help-block"><?= form_error('foto') ?></span> <? } ?>
                                                     </div>
@@ -83,12 +83,11 @@
 
                                                                     <option value="<?php echo $provincia->nombre; ?>" 
                                                                         <? if ($provincia->nombre == $data_fields['provincia']){ ?>
-                                                                            checked> <?=$data_fields['provincia'];?> 
+                                                                            selected> 
                                                                         <? }else{ ?>
-                                                                            > <?= $provincia->nombre; ?>
+                                                                            > 
                                                                         <? }; ?>
-                                                                    </option>
-                                                                            
+                                                                    <?= $provincia->nombre; ?></option>
                                                                 <? }; ?>
                                                                     
                                                             </select>

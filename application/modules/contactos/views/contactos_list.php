@@ -96,7 +96,7 @@
                                         
                         <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->contacto_telefono; ?></td>
 
-                        <td class=" text-left d-none d-sm-table-cell"> <img src=<?= "https://127.0.0.1/Miguel/assets/img/" . $row->foto; ?> width="200" height="130" alt="<?=$row->foto;?>"/></td>
+                        <td class=" text-left d-none d-sm-table-cell"> <img src=<?= "https://127.0.0.1/Miguel/assets/img/contactos_fotos/" . $row->foto; ?> width="200" height="130" alt="<?=$row->foto;?>"/></td>
 
                         <td class=" text-left d-none d-sm-table-cell"> <?php echo $row->provincia; ?></td>
 

@@ -12,7 +12,7 @@ RewriteRule ^(.*)$ http\:\/\/www\.xxxxx\.com/$1 [L,R=301]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond $1 !^(index\.php|images|css|js|admin|robots\.txt|favicon\.ico)
+RewriteCond $1 !^(index\.php|images|css|js|admin|robots\.txt|favicon\.ico|uploads)
 RewriteRule ^(.*)$ index.php?/$1 [L]
 </IfModule>
 <IfModule !mod_rewrite.c>
