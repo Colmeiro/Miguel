@@ -166,16 +166,6 @@ class ContactosController extends MX_Controller
     public function create_action()
     {
         
-        $data = array(
-            'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
-            'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
-            'contacto_activo' => $this->input->post('contacto_activo', TRUE),
-            'foto' => $this->input->post('foto', TRUE),
-            'provincia' => $this->input->post('provincia', TRUE),
-            'sexo' => $this->input->post('sexo', TRUE),
-            'fechaNacimiento' => $this->input->post('fechaNacimiento', TRUE),
-        );
-
         $foto = 'foto';
         $config['upload_path'] = "C:/xampp/htdocs/Miguel/assets/img/contactos_fotos";
         //$config['file_name'] = "img";
@@ -183,22 +173,26 @@ class ContactosController extends MX_Controller
         $config['max_size'] = "5000";
         $config['max_width'] = "2000";
         $config['max_height'] = "2000";
-        // var_dump($_FILES);
-        // die();
+
+        $data = array(
+            'contacto_nombre' => $this->input->post('contacto_nombre', TRUE),
+            'contacto_telefono' => $this->input->post('contacto_telefono', TRUE),
+            'contacto_activo' => $this->input->post('contacto_activo', TRUE),
+            'foto' => $_FILES['foto']['name'],
+            'provincia' => $this->input->post('provincia', TRUE),
+            'sexo' => $this->input->post('sexo', TRUE),
+            'fechaNacimiento' => $this->input->post('fechaNacimiento', TRUE),
+        );
         
         $this->load->library('upload', $config);
 
         if(!$this->upload->do_upload($foto)) {
             $data2['uploadError'] = $this->upload->display_errors();
             echo $this->upload->display_errors();
-            
-            var_dump($_FILES);
-            return;
         }
 
         $data2['uploadSuccess'] = $this->upload->data();
         
-
         $this->Contactos_model->insert($data);
         $this->session->set_flashdata('message', 'contacto creado correctamente');
        
