@@ -3,8 +3,11 @@
         <div class="content-wrapper">
 
             <div>
-                <img src="img\logoTapas.jpg" alt="" width="40%" height="150px" style="margin:60px" class="logo">
+                <img src="app-assets\images\logoTapas.jpg" alt="" width="40%" height="150px" style="margin:60px" class="logo">
             </div>
+
+            <a href="<?= site_url('tappas/tappas/view') ?>">hey</a>
+            <a href="<?= site_url('privado/rol') ?>">hey</a>
 
             <!-- barra de búsqueda -->
             <div>
@@ -16,9 +19,9 @@
             </div>
 
             <div>
-                <img src="img\fotos_pinchos\pincho_torti.jpg" alt="" class="image_left"> 
+                <img src="app-assets\images\fotos_pinchos\pincho_torti.jpg" alt="" class="image_left" width="500px"> 
 
-                <img src="img\fotos_pinchos\pincho_ensaladilla.jpg" alt="" class="image_right">
+                <img src="app-assets\images\fotos_pinchos\pincho_ensaladilla.jpg" alt="" class="image_right" width="500px">
             </div>
 
         </div>

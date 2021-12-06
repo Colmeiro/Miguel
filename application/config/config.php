@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 if (strpos($_SERVER["HTTP_HOST"], "vlx.es") !== false)
-    $config['base_url'] = "https://127.0.0.1/Miguel/";
+    $config['base_url'] = "https://127.0.0.1/novo/";
 else
     $config['base_url'] = ""; // TODO
 

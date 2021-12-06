@@ -78,7 +78,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'colmeiro',
 	'password' => '123asd',
-	'database' => 'miguel_db',
+	'database' => 'tappas_gratis',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -97,10 +97,10 @@ $db['default'] = array(
 if (strpos($_SERVER["HTTP_HOST"], "vlx.es") !== false){
 	$db['default']['username'] = "colmeiro";
 	$db['default']['password'] = "123asd";
-	$db['default']['database'] = "miguel_db";
+	$db['default']['database'] = "tappas_gratis";
 }
 else{
 	$db['default']['username'] = "colmeiro";
 	$db['default']['password'] = "123asd";
-	$db['default']['database'] = "miguel_db";
+	$db['default']['database'] = "tappas_gratis";
 }

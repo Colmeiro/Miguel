@@ -65,6 +65,9 @@
                                                     <div class="form-group<?= form_error('foto') != '' ? ' has-error' : '' ?>">
                                                         <label for="foto">Foto <?php echo form_error('foto') ?></label> <br>
                                                         <input type="file" name="foto" class="form-control"/>
+                                                        <? if (isset($data_fields['foto'])) {
+                                                                echo $data_fields['foto'];
+                                                        } ?>
                                                        
                                                         <? if (form_error('foto') != '') { ?> <span class="help-block"><?= form_error('foto') ?></span> <? } ?>
                                                     </div>
