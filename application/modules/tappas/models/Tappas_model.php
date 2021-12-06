@@ -26,7 +26,8 @@ class Tappas_model extends CI_Model
                             locales.local_valoracion'
                         );
 
-        $this->db->order_by($this->id, $this->order);return $this->db->get($this->table)->result();
+        $this->db->order_by($this->id, $this->order);
+        return $this->db->get($this->table)->result();
     }
 
 
@@ -35,6 +36,12 @@ class Tappas_model extends CI_Model
     {
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
+    }
+
+    function get_search($datos)
+    {
+        $this->db->like('local_ciudad', $datos);
+        return $this->db->get($this->table)->result();
     }
 
     
